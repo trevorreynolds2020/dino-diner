@@ -5,18 +5,20 @@ namespace DinoDiner.Menu.Entrees
 {
     public class Brontowurst
     {
-        private bool Bun = true;
-        private bool Peppers = true;
-        private bool Onions = true;
-
         public double Price { get; set; }
         public uint Calories { get; set; }
 
+        public bool Bun = true;
+        public bool Peppers = true;
+        public bool Onion = true;
         public List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Whole Wheath Bun", "Brautwurst", "Peppers" , "Onions"};
+                List<string> ingredients = new List<string>() { "Brautwurst"};
+                if (Bun)  ingredients.Add("Whole Wheat Bun");
+                if (Peppers) ingredients.Add("Peppers");
+                if (Onion) ingredients.Add("Onion");
                 return ingredients;
             }
         }
@@ -29,16 +31,16 @@ namespace DinoDiner.Menu.Entrees
 
         public void HoldBun()
         {
-            this.Bun = false;
+            Bun = false;
         }
 
         public void HoldPeppers()
         {
-            this.Peppers = false;
+            Peppers = false;
         }
-        public void HoldOnions()
+        public void HoldOnion()
         {
-            this.Onions = false;
+            Onion = false;
         }
     }
 }

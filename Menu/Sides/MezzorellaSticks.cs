@@ -6,8 +6,13 @@ namespace DinoDiner.Menu.Sides
 {
     public class MezzorellaSticks : Side
     {
+        /// <summary>
+        /// Enum for the size
+        /// </summary>
         private Size size;
-
+        /// <summary>
+        /// Gets info about food item based on the size enum
+        /// </summary>
         public override Size Size
         {
             set
@@ -32,7 +37,9 @@ namespace DinoDiner.Menu.Sides
             get { return size; }
         }
 
-
+        /// <summary>
+        /// Adds info about the item
+        /// </summary>
         public MezzorellaSticks()
         {
             Price = 0.99;

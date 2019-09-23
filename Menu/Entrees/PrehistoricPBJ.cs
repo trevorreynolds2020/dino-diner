@@ -2,15 +2,14 @@
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
         private bool peanutButter = true;
         private bool jelly = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
 
-        public List<string> Ingredients
+
+        public override List<string> Ingredients
         {
             get
             {
@@ -23,8 +22,8 @@ namespace DinoDiner.Menu.Entrees
 
         public PrehistoricPBJ()
         {
-            this.Price = 6.52;
-            this.Calories = 483;
+            Price = 6.52;
+            Calories = 483;
         }
 
         public void HoldPeanutButter()

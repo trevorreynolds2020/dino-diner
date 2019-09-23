@@ -38,7 +38,7 @@ namespace DinoDiner.Menu.Sides
             Calories = 420;
             Ingredients.Add("Macaroni Noodles");
             Ingredients.Add("Cheese Product");
-            Ingredients.Add("Pork Sausage");
+            Ingredients.Add("Pork Sausuage");
         }
     }
 }

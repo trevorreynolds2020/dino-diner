@@ -3,16 +3,14 @@
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
-        public double Price { get; set; }
-        public uint Calories { get; set; }
 
         public bool Dressing = true;
         public bool Lettuce = true;
         public bool Cheese = true;
        
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -27,8 +25,8 @@ namespace DinoDiner.Menu.Entrees
 
         public VelociWrap()
         {
-            this.Price = 6.86;
-            this.Calories = 356;
+            Price = 6.86;
+            Calories = 356;
         }
 
         public void HoldDressing()

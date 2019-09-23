@@ -26,7 +26,7 @@ namespace DinoDiner.Menu.Sides
                         break;
                     case Size.Large:
                         Price = 1.95;
-                        Calories = 352;
+                        Calories = 590;
                         break;
                 }
             }
@@ -40,6 +40,7 @@ namespace DinoDiner.Menu.Sides
             Calories = 352;
             Ingredients.Add("Potato");
             Ingredients.Add("Salt");
+            Ingredients.Add("Vegetable Oil");
 
         }
     }

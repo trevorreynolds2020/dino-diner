@@ -3,15 +3,14 @@ using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
-        public double Price { get; set; }
-        public uint Calories { get; set; }
+        
 
         public bool Bun = true;
         public bool Peppers = true;
         public bool Onion = true;
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -25,8 +24,8 @@ namespace DinoDiner.Menu.Entrees
 
         public Brontowurst()
         {
-            this.Price = 5.36;
-            this.Calories = 498;
+            Price = 5.36;
+            Calories = 498;
         }
 
         public void HoldBun()

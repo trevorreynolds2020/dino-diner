@@ -3,10 +3,8 @@
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
-        public double Price { get; set; }
-        public uint Calories { get; set; }
 
         public bool Bun = true;
         public bool Lettuce = true;
@@ -16,7 +14,7 @@ namespace DinoDiner.Menu.Entrees
         public bool Ketchup = true;
         public bool Mustard = true;
         public bool Mayo = true;
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -35,8 +33,8 @@ namespace DinoDiner.Menu.Entrees
 
         public TRexKingBurger()
         {
-            this.Price = 8.45;
-            this.Calories = 728;
+            Price = 8.45;
+            Calories = 728;
         }
 
         public void HoldBun()

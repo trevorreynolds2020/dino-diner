@@ -6,8 +6,13 @@ namespace DinoDiner.Menu.Sides
 {
     public class Fryceritops : Side
     {
+        /// <summary>
+        /// Enum for the size
+        /// </summary>
         private Size size;
-
+        /// <summary>
+        /// Gets the info based on the size of the order
+        /// </summary>
         public override Size Size
         {
             set
@@ -32,7 +37,9 @@ namespace DinoDiner.Menu.Sides
             get { return size; }
         }
        
-
+        /// <summary>
+        /// Initializes the info and ingredients for the side
+        /// </summary>
         public Fryceritops()
         {
             Price = 0.99;

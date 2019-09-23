@@ -37,8 +37,9 @@ namespace DinoDiner.Menu.Sides
         {
             Price = 0.99;
             Calories = 540;
-            Ingredients.Add("Potato");
-            Ingredients.Add("Salt");
+            Ingredients.Add("Breading");
+            Ingredients.Add("Cheese Product");
+            Ingredients.Add("Vegetable Oil");
 
         }
     }

@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>() { "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget" };
+                List<string> ingredients = new List<string>() {  "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget", "Chicken Nugget" };
                 return ingredients;
             }
         }

@@ -36,10 +36,10 @@ namespace DinoDiner.Menu.Sides
         public Fryceritops()
         {
             Price = 0.99;
-            Calories = 352;
+            Calories = 222;
             Ingredients.Add("Potato");
             Ingredients.Add("Salt");
-            Ingredients.Add("Vegetable oil");
+            Ingredients.Add("Vegetable Oil");
         }
     }
 }

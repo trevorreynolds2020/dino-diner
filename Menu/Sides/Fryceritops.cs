@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    public class Frycertiops : Side
+    public class Fryceritops : Side
     {
         private Size size;
 
@@ -33,7 +33,7 @@ namespace DinoDiner.Menu.Sides
         }
        
 
-        public Frycertiops()
+        public Fryceritops()
         {
             Price = 0.99;
             Calories = 352;

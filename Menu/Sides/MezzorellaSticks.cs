@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    public class MezzorellaSick : Side
+    public class MezzorellaSticks : Side
     {
         private Size size;
 
@@ -33,7 +33,7 @@ namespace DinoDiner.Menu.Sides
         }
 
 
-        public MezzorellaSick()
+        public MezzorellaSticks()
         {
             Price = 0.99;
             Calories = 540;

@@ -19,7 +19,22 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectDefaultCalories()
         {
             Sodasaurus s = new Sodasaurus();
-            Assert.Equal<uint>(222, ft.Calories);
+            Assert.Equal<uint>(112, s.Calories);
+        }
+        [Fact]
+        public void ShouldHaveCorrectIngedients()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.Contains<string>("Water", s.Ingredients);
+            Assert.Contains<string>("Natural Flavor", s.Ingredients);
+            Assert.Contains<string>("Cane Sugar", s.Ingredients);
+            Assert.Equal<int>(3,s.Ingredients.Count);
+        }
+        [Fact]
+        public void ShouldHaveCorrectDefaultSize()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.Equal<Size>(Size.Small, s.Size);
         }
     }
 }

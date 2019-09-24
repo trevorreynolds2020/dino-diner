@@ -4,10 +4,34 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Water: Drink
+    public class Water:Drink
     {
         public bool Lemon = false;
-        
+        public Size size;
+        public override Size Size
+        {
+            set
+            {
+                size = value;
+                switch (size)
+                {
+                    case Size.Small:
+                        Price = .1;
+                        Calories = 0;
+                        break;
+                    case Size.Medium:
+                        Price = .1;
+                        Calories = 0;
+                        break;
+                    case Size.Large:
+                        Price = .1;
+                        Calories = 0;
+                        break;
+                }
+            }
+            get { return size; }
+        }
+
         public Water()
         {
             Price = 0.10;

@@ -1,24 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner;
 
 namespace DinoDiner.Menu.Drinks
 {
     public class Sodasaurus : Drink
     {
-        public SodasaurusFlavor Flavor;
-        public Size size;
-        public enum SodasaurusFlavor
-        {
-            Cola,
-            Orange,
-            Rootbear,
-            Lime,
-            Cherry,
-            Vanilla,
-            Grape,
-            Cream
+        private SodasaurusFlavor flavor;
+        public SodasaurusFlavor Flavor {
+            get { return flavor; } 
+            set { flavor = value; }
         }
+        public Size size;
+        public double Price { get; set; } = 1.5;
 
         public override Size Size
         {
@@ -48,7 +43,7 @@ namespace DinoDiner.Menu.Drinks
             Price = 0;
             Calories = 0;
             Ice = true;
-            Ingredients.Add("Waters");
+            Ingredients.Add("Water");
             Ingredients.Add("Natural Flavors");
             Ingredients.Add("Cane Sugar");
         }

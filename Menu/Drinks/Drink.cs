@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public enum Size { Small, Medium, Large };
+//    public enum Size { Small, Medium, Large };
     public abstract class Drink
     {
         protected List<string> ingredients = new List<string>();

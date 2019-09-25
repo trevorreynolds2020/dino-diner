@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Tytannotea:Drink
+    public class Tyrannotea:Drink
     {
-        public bool Sweet = false;
+        public bool Sweet { get; set; } = false;
         public bool Lemon = false;
         public Size size;
 
@@ -33,7 +33,7 @@ namespace DinoDiner.Menu.Drinks
             }
             get { return size; }
         }
-        public Tytannotea()
+        public Tyrannotea()
         {
             Price = 0;
             Calories = 0;
@@ -53,6 +53,14 @@ namespace DinoDiner.Menu.Drinks
         {
             Sweet = true;
             Calories *= 2;
+        }
+        public void NoSweetner()
+        {
+            if(Sweet)
+            {
+                Sweet = false;
+                Calories /= 2;
+            }
         }
     }
 }

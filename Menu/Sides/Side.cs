@@ -7,12 +7,12 @@ namespace DinoDiner.Menu.Sides
     /// <summary>
     /// Size of side
     /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
+//    public enum Size
+//{
+//        Small,
+//        Medium, 
+//        Large
+  //  }
     /// <summary>
     /// Relevant details about the side
     /// </summary>
@@ -37,7 +37,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size { get; set; } //should be abstract
 
     }
 }

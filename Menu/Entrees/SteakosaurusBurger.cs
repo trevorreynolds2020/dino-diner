@@ -3,7 +3,7 @@
 
 namespace DinoDiner.Menu
 {
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         public double Price { get; set; }
         public uint Calories { get; set; }

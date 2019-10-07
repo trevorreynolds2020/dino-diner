@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class JurrasicJava:Drink
+    public class JurrasicJava:Drink,IMenuItem
     {
         public Size size;
         public bool RoomForCream = false;
@@ -47,6 +47,12 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             Ice = true;
+        }
+
+        public override string ToString()
+        {
+            if (Defac) return $"{Size} Decaf Jurrasic Java";
+            else return $"{Size} Decaf Jurrasic Java";
         }
     }
 }

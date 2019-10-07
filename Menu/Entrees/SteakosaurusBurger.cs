@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     public class SteakosaurusBurger
     {
@@ -47,6 +47,10 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMustard()
         {
             Mustard = false;
+        }
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
         }
     }
 }

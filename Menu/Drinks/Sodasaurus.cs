@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DinoDiner;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public class Sodasaurus : Drink
     {
@@ -46,6 +46,11 @@ namespace DinoDiner.Menu.Drinks
             Ingredients.Add("Water");
             Ingredients.Add("Natural Flavors");
             Ingredients.Add("Cane Sugar");
+        }
+
+        public override string ToString()
+        {
+            return $"{Size} {Flavor} Sodasaurus";
         }
     }
 }

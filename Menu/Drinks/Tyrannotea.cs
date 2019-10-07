@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public class Tyrannotea:Drink
     {
@@ -61,6 +61,12 @@ namespace DinoDiner.Menu.Drinks
                 Sweet = false;
                 Calories /= 2;
             }
+        }
+
+        public override string ToString()
+        {
+            if (Sweet) return $"{Size} Sweet Tyrannotea";
+            else return $"{Size} Tyrannotea";
         }
     }
 }

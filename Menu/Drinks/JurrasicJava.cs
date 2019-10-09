@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class JurrasicJava:Drink,IMenuItem
+    public class JurrasicJava:Drink
     {
         public Size size;
         public bool RoomForCream = false;

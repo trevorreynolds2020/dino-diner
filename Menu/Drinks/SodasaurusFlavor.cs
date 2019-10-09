@@ -8,11 +8,12 @@ namespace DinoDiner.Menu
     {
         Cola,
         Orange,
-        Rootbear,
+        RootBeer,
         Lime,
         Cherry,
         Vanilla,
         Grape,
-        Cream
+        Cream,
+        Chocolate
     }
 }

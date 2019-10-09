@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
        {
             get
             {     
-                AvailableMenuItems.Add(new JurrasicJava());
+                AvailableMenuItems.Add(new JurassicJava());
                 AvailableMenuItems.Add(new Sodasaurus());
                 AvailableMenuItems.Add(new Tyrannotea());
                 AvailableMenuItems.Add(new Water());
@@ -68,7 +68,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                AvailableDrinks.Add(new JurrasicJava());
+                AvailableDrinks.Add(new JurassicJava());
                 AvailableDrinks.Add(new Sodasaurus());
                 AvailableDrinks.Add(new Tyrannotea());
                 AvailableDrinks.Add(new Water());

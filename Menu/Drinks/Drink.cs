@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
         public virtual Size Size { get; set; }
         public double Price { get; set; }
         public uint Calories { get; set; }
-        public virtual List<string> Ingredients { get { return ingredients; } }
+        public virtual List<string> Ingredients { get { return new List<string>(ingredients); } }
         public bool Ice { get; set; } = true;
 
         public void HoldIce()

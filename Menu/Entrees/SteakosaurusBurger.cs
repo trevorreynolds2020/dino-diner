@@ -5,14 +5,12 @@ namespace DinoDiner.Menu
 {
     public class SteakosaurusBurger : Entree
     {
-        public double Price { get; set; }
-        public uint Calories { get; set; }
 
         public bool Bun = true;
         public bool Pickle = true;
         public bool Ketchup = true;
         public bool Mustard = true;
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

@@ -4,11 +4,11 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class JurrasicJava:Drink
+    public class JurassicJava:Drink
     {
-        public Size size;
-        public bool RoomForCream = false;
-        public bool Defac = false;
+        private Size size;
+        public bool RoomForCream { get; set; } = false;
+        public bool Decaf { get; set; } = false;
         public override Size Size
         {
             set
@@ -32,13 +32,12 @@ namespace DinoDiner.Menu
             }
             get { return size; }
         }
-        public JurrasicJava()
+        public JurassicJava()
         {
-            Price = 0;
-            Calories = 0;
+            size = Size.Small;
             Ice = false;
-            Ingredients.Add("Water");
-            Ingredients.Add("Coffee");
+            ingredients.Add("Water");
+            ingredients.Add("Coffee");
         }
         public void LeaveRoomForCream()
         {
@@ -51,8 +50,8 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            if (Defac) return $"{Size} Decaf Jurrasic Java";
-            else return $"{Size} Decaf Jurrasic Java";
+            if (Decaf) return $"{Size} Decaf Jurrasic Java";
+            else return $"{Size} Jurrasic Java";
         }
     }
 }

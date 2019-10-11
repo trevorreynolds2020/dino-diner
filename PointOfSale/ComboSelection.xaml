@@ -15,12 +15,60 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>Brontowurst Combo</Button>
-        <Button >Dino-Nuggets Combo</Button>
-        <Button>Steakosaurus Combo</Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Veloci-Wrap Combo</Button>
+        <Button>
+            <StackPanel>
+                <Image Width="100" Source="Assets/DinoDiner-01.png">
+                </Image>
+                <TextBlock>Brontowurst</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button>
+            <Button.Background>
+                <ImageBrush ImageSource = "Assets/DinoDiner-02.png"/>
+            </Button.Background>
+            <TextBlock>
+                Dino Nuggets
+            </TextBlock>
+        </Button>
+        <Button>
+            <Button.Background>
+                <ImageBrush ImageSource = "Assets/DinoDiner-03.png"/>
+            </Button.Background>
+            <TextBlock>
+                Prehistoric PB&amp;J Combo
+            </TextBlock>
+        </Button>
+        <Button>
+            <Button.Background>
+                <ImageBrush ImageSource = "Assets/DinoDiner-04.png"/>
+            </Button.Background>
+            <TextBlock>
+                Pterodactyl Wings Combo
+            </TextBlock>
+        </Button>
+        <Button>
+            <Button.Background>
+                <ImageBrush ImageSource = "Assets/DinoDiner-05.png"/>
+            </Button.Background>
+            <TextBlock>
+                T-Rex King Burger
+            </TextBlock>
+        </Button>
+        <Button>
+            <Button.Background>
+                <ImageBrush ImageSource = "Assets/DinoDiner-06.png"/>
+            </Button.Background>
+            <TextBlock>
+                Prehistoric PB&amp;J Combo
+            </TextBlock>
+        </Button>
+        <Button>
+            <Button.Background>
+                <ImageBrush ImageSource = "Assets/DinoDiner-07.png"/>
+            </Button.Background>
+            <TextBlock>
+                Veloci Wrap
+            </TextBlock>
+        </Button>
     </WrapPanel>
 </Page>

@@ -43,9 +43,9 @@ namespace DinoDiner.Menu
             Price = 0;
             Calories = 0;
             Ice = true;
-            Ingredients.Add("Water");
-            Ingredients.Add("Natural Flavors");
-            Ingredients.Add("Cane Sugar");
+            ingredients.Add("Water");
+            ingredients.Add("Natural Flavors");
+            ingredients.Add("Cane Sugar");
         }
 
         public override string ToString()

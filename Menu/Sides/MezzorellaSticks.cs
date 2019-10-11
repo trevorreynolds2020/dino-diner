@@ -44,9 +44,9 @@ namespace DinoDiner.Menu
         {
             Price = 0.99;
             Calories = 540;
-            Ingredients.Add("Breading");
-            Ingredients.Add("Cheese Product");
-            Ingredients.Add("Vegetable Oil");
+            ingredients.Add("Breading");
+            ingredients.Add("Cheese Product");
+            ingredients.Add("Vegetable Oil");
 
         }
 

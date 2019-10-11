@@ -38,10 +38,10 @@ namespace DinoDiner.Menu
             Price = 0;
             Calories = 0;
             Ice = true;
-            Ingredients.Add("Water");
-            Ingredients.Add("Tea");
-            Ingredients.Add("Lemon");
-            Ingredients.Add("Cane Sugar");
+            ingredients.Add("Water");
+            ingredients.Add("Tea");
+            ingredients.Add("Lemon");
+            ingredients.Add("Cane Sugar");
         }
 
         public void AddLemon()

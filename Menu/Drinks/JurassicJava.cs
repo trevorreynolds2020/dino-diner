@@ -50,8 +50,8 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            if (Decaf) return $"{Size} Decaf Jurrasic Java";
-            else return $"{Size} Jurrasic Java";
+            if (Decaf) return $"{Size} Decaf Jurassic Java";
+            else return $"{Size} Jurassic Java";
         }
     }
 }

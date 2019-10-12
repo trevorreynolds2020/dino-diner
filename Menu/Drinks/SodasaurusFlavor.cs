@@ -6,14 +6,12 @@ namespace DinoDiner.Menu
 {
     public enum SodasaurusFlavor
     {
-        Cola,
-        Orange,
-        RootBeer,
-        Lime,
         Cherry,
+        Lime,
         Vanilla,
-        Grape,
-        Cream,
-        Chocolate
+        Chocolate,
+        Orange,
+        Cola,
+        RootBeer
     }
 }

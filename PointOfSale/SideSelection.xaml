@@ -47,9 +47,10 @@
                 Triceritots
             </TextBlock>
         </Button>
-        <Button>Small</Button>
-        <Button>Medium</Button>
-        <Button>Large</Button>
+        <RadioButton>Small</RadioButton>
+        <RadioButton>Medium</RadioButton>
+        <RadioButton>Large</RadioButton>
+
     </WrapPanel>
    
 </Page>

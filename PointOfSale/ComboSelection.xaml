@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="SelectCombo">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-01.png"/>
             </Button.Background>
@@ -23,7 +23,7 @@
                 Brontowurst Combo
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectCombo">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-02.png"/>
             </Button.Background>
@@ -31,7 +31,7 @@
                 Dino Nuggets Combo
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectCombo">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-03.png"/>
             </Button.Background>
@@ -39,7 +39,7 @@
                 Prehistoric PB&amp;J Combo
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectCombo">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-04.png"/>
             </Button.Background>
@@ -47,7 +47,7 @@
                 Pterodactyl Wings Combo
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectCombo">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-05.png"/>
             </Button.Background>
@@ -55,7 +55,7 @@
                 T-Rex King Burger Combo
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectCombo">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-06.png"/>
             </Button.Background>
@@ -63,7 +63,7 @@
                 Prehistoric PB&amp;J Combo
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectCombo">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-07.png"/>
             </Button.Background>

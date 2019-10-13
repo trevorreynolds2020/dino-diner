@@ -8,11 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DrinkSelection">
 
-    <WrapPanel>
+    <WrapPanel Name="SelectDrink">
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="200"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="150"/>
             </Style>
         </WrapPanel.Resources>
         <Button>
@@ -31,7 +31,7 @@
                 Jurassic Java
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectFlavor">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-14.png"/>
             </Button.Background>
@@ -47,12 +47,9 @@
                 Water
             </TextBlock>
         </Button>
-        <Button>Small</Button>
-        <Button>Medium</Button>
-        <Button>Large</Button>
-        <Button>Sweet/Decaf/Flavor</Button>
-        <Button>Add Lemon</Button>
-        <Button>Hold Ice</Button>
+        <RadioButton>Small</RadioButton>
+        <RadioButton>Medium</RadioButton>
+        <RadioButton>Large</RadioButton>
     </WrapPanel>
     
 </Page>

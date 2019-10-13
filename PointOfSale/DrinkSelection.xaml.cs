@@ -24,5 +24,15 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+        void SelectFlavor(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+        void HoldIce(object sender, RoutedEventArgs args)
+        {
+            //NavigationService.Navigate(new FlavorSelection());
+            //this.SelectDrink.Add(new Button() { Name = "Hold Ice" });
+        }
+
     }
 }

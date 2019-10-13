@@ -8,5 +8,22 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FlavorSelection">
 
-    
+
+    <WrapPanel>
+        <WrapPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="100"/>
+            </Style>
+        </WrapPanel.Resources>
+        <Button>Cherry</Button>
+        <Button>Chocolate</Button>
+        <Button>Cola</Button>
+        <Button>Lime</Button>
+        <Button>Orange</Button>
+        <Button>Root Beer</Button>
+        <Button>Vanilla</Button>
+
+    </WrapPanel>
+
 </Page>

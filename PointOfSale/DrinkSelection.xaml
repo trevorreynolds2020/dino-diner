@@ -11,11 +11,11 @@
     <WrapPanel Name="SelectDrink">
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="150"/>
-                <Setter Property="Height" Value="150"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="100"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="TyrannoteaClick">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-12.png"/>
             </Button.Background>
@@ -23,7 +23,7 @@
                 Tyrannotea
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="JurassicJavaClick">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-13.png"/>
             </Button.Background>
@@ -31,7 +31,7 @@
                 Jurassic Java
             </TextBlock>
         </Button>
-        <Button Click="SelectFlavor">
+        <Button Click="SodasaurusClick">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-14.png"/>
             </Button.Background>
@@ -39,7 +39,7 @@
                 Sodasaurus
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="WaterClick">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-15.png"/>
             </Button.Background>

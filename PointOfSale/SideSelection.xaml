@@ -11,8 +11,8 @@
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="200"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="100"/>
             </Style>
         </WrapPanel.Resources>
         <Button>

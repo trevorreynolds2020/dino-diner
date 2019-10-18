@@ -7,12 +7,12 @@ namespace DinoDiner.Menu
     public abstract class Entree : IMenuItem
     {
 
-        public double Price { get; set; }
+        public virtual double Price { get; set; }
 
         /// <summary>
         /// Gets and sets the calories
         /// </summary>
-        public uint Calories { get; set; }
+        public virtual uint Calories { get; set; }
 
         /// <summary>
         /// Gets the ingredients list

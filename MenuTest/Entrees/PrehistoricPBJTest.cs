@@ -46,18 +46,27 @@ namespace MenuTest.Entrees
             pbj.HoldJelly();
             Assert.DoesNotContain<string>("Jelly", pbj.Ingredients);
         }
+        /// <summary>
+        /// Checks the description of the entree
+        /// </summary>
         [Fact]
         public void DescriptionShouldBeCorrect()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             Assert.Equal("Prehistoric PB&J", pbj.Description);
         }
+        /// <summary>
+        /// Checks make there are no special instructions for a new instance of entree
+        /// </summary>
         [Fact]
         public void SpeicalShouldBeEmptyByDefault()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             Assert.Empty(pbj.Special);
         }
+        /// <summary>
+        /// Checks whether or not the peanut butter property is changed, and the special list is updated
+        /// </summary>
         [Fact]
         public void HoldPeanutButterShouldAddToSpecial()
         {
@@ -68,6 +77,9 @@ namespace MenuTest.Entrees
                 Assert.Equal("Hold Peanut Butter", item);
             });
         }
+        /// <summary>
+        /// Checks whether or not the jelly property is changed, and the special list is updated
+        /// </summary>
         [Fact]
         public void HoldJellyShouldAddToSpecial()
         {
@@ -78,6 +90,9 @@ namespace MenuTest.Entrees
                 Assert.Equal("Hold Jelly", item);
             });
         }
+        /// <summary>
+        /// Checks whether or not the jelly and peanut butter property is changed, and the special list is updated
+        /// </summary>
         [Fact]
         public void HoldPeanutButterAndJellyShouldAddToSpecial()
         {
@@ -95,6 +110,9 @@ namespace MenuTest.Entrees
             }
             );
         }
+        /// <summary>
+        /// Should update special instructions list
+        /// </summary>
         [Fact]
         public void HoldingPeanutButterShouldNotifySpecialChange()
         {
@@ -104,6 +122,9 @@ namespace MenuTest.Entrees
                 pbj.HoldPeanutButter();
             });
         }
+        /// <summary>
+        /// Should update special instructions list
+        /// </summary>
         [Fact]
         public void HoldingJellyShouldNotifySpecialChange()
         {

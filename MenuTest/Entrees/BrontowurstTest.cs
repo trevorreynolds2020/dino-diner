@@ -55,6 +55,50 @@ namespace MenuTest.Entrees
             bw.HoldOnion();
             Assert.DoesNotContain<string>("Onion", bw.Ingredients);
         }
+        /// <summary>
+        /// Checks the description of the entree
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Equal("Brontoworst", pbj.Description);
+        }
+        /// <summary>
+        /// Checks make there are no special instructions for a new instance of entree
+        /// </summary>
+        [Fact]
+        public void SpeicalShouldBeEmptyByDefault()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+        /// <summary>
+        /// Checks whether or not the bun property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void HoldBunShouldAddToSpecial()
+        {
+            Brontowurst b = new Brontowurst();
+            b.HoldBun();
+            Assert.Collection<string>(b.Special, item =>
+            {
+                Assert.Equal("Hold Bun", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not the pepper property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void HoldPeppersShouldAddToSpecial()
+        {
+            Brontowurst b = new Brontowurst();
+            b.HoldBun();
+            Assert.Collection<string>(b.Special, item =>
+            {
+                Assert.Equal("Hold Bun", item);
+            });
+        }
     }
 
 }

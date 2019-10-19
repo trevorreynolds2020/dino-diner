@@ -88,5 +88,91 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Coffee", j.Ingredients);
             Assert.Equal<int>(2, j.Ingredients.Count);
         }
+        /// <summary>
+        /// Checks the description of the entree
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Equal("Prehistoric PB&J", pbj.Description);
+        }
+        /// <summary>
+        /// Checks make there are no special instructions for a new instance of entree
+        /// </summary>
+        [Fact]
+        public void SpeicalShouldBeEmptyByDefault()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+        /// <summary>
+        /// Checks whether or not the leave room for cream property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void RoomForCreamShouldAddToSpecial()
+        {
+            JurassicJava j = new JurassicJava();
+            j.LeaveRoomForCream();
+            Assert.Collection<string>(j.Special, item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not the ice is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void AddIceShouldAddToSpecial()
+        {
+            JurassicJava j = new JurassicJava();
+            j.AddIce();
+            Assert.Collection<string>(j.Special, item =>
+            {
+                Assert.Equal("Add Ice", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not the leave room for cream property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void RoomForCreamAndAddIceShouldAddToSpecial()
+        {
+            JurassicJava j = new JurassicJava();
+            j.LeaveRoomForCream();
+            j.AddIce();
+            Assert.Collection<string>(j.Special, item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            },
+            item =>
+            {
+                Assert.Equal("Add Ice", item);
+            });
+        }
+        /// <summary>
+        /// Should update special instructions list
+        /// </summary>
+        [Fact]
+        public void RoomForCreamShouldNotifySpecialChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Special", () =>
+            {
+                j.LeaveRoomForCream();
+            });
+        }
+        /// <summary>
+        /// Should update special instructions list
+        /// </summary>
+        [Fact]
+        public void AddIceShouldNotifySpecialChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Special", () =>
+            {
+                j.AddIce();
+            });
+        }
     }
 }

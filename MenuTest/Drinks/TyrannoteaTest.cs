@@ -148,7 +148,25 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Tea", t.Ingredients);
             Assert.Equal<int>(4, t.Ingredients.Count);
         }
-       
+
+        /// <summary>
+        /// Checks the description of the entree
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            Tyrannotea t = new Tyrannotea();
+            Assert.Equal("Small Tyrannotea", t.Description);
+        }
+        /// <summary>
+        /// Checks make there are no special instructions for a new instance of entree
+        /// </summary>
+        [Fact]
+        public void SpeicalShouldBeEmptyByDefault()
+        {
+            Tyrannotea t = new Tyrannotea();
+            Assert.Empty(t.Special);
+        }
 
 
     }

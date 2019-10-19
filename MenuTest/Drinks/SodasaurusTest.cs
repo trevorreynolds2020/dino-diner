@@ -62,5 +62,14 @@ namespace MenuTest.Drinks
             s.HoldIce();
             Assert.False(s.Ice);
         }
+        /// <summary>
+        /// Checks the description of the entree
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            Sodasaurus s = new Sodasaurus();
+            Assert.Equal("Small _ Sodasaurus", s.Description);
+        }
     }
 }

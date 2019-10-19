@@ -29,6 +29,25 @@ namespace MenuTest.Entrees
             Assert.Contains<string>("Wing Sauce", ingredients);
             Assert.Equal<int>(2, ingredients.Count);
         }
-
+        /// <summary>
+        /// Checks the description of the entree
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            PterodactylWings p = new PterodactylWings();
+            Assert.Equal("Pterodactyl Wings", p.Description);
+        }
+        /// <summary>
+        /// Checks make there are no special instructions for a new instance of entree
+        /// </summary>
+        [Fact]
+        public void SpeicalShouldBeEmptyByDefault()
+        {
+            PterodactylWings p = new PterodactylWings();
+            Assert.Empty(p.Special);
+        }
+       
+        //can their best special instructions?
     }
 }

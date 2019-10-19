@@ -70,7 +70,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (count > 6) special.Add((count - 6).ToString()+" Extra Nuggets");
+                if (count > 6) special.Add((count - 6).ToString() + " Extra Nuggets");
                 return special.ToArray();
             }
         }

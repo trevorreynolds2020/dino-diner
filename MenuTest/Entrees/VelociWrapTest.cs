@@ -56,5 +56,87 @@ namespace MenuTest.Entrees
             vw.HoldCheese();
             Assert.DoesNotContain<string>("Parmesan Cheese", vw.Ingredients);
         }
+        /// <summary>
+        /// Checks the description of the entree
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            VelociWrap v = new VelociWrap();
+            Assert.Equal("Veloci-Wrap", v.Description);
+        }
+        /// <summary>
+        /// Checks make there are no special instructions for a new instance of entree
+        /// </summary>
+        [Fact]
+        public void SpeicalShouldBeEmptyByDefault()
+        {
+            VelociWrap v = new VelociWrap();
+            Assert.Empty(v.Special);
+        }
+        /// <summary>
+        /// Checks whether or not the dressing property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void HoldDressingShouldAddToSpecial()
+        {
+            VelociWrap v = new VelociWrap();
+            v.HoldDressing();
+            Assert.Collection<string>(v.Special, item =>
+            {
+                Assert.Equal("Hold Dressing", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not the lettuce property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void HoldLettuceShouldAddToSpecial()
+        {
+            VelociWrap v = new VelociWrap();
+            v.HoldLettuce();
+            Assert.Collection<string>(v.Special, item =>
+            {
+                Assert.Equal("Hold Lettuce", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not the cheese property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void HoldCheeseShouldAddToSpecial()
+        {
+            VelociWrap v = new VelociWrap();
+            v.HoldCheese();
+            Assert.Collection<string>(v.Special, item =>
+            {
+                Assert.Equal("Hold Cheese", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not all properties are changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void HoldPeanutButterAndJellyShouldAddToSpecial()
+        {
+            VelociWrap v = new VelociWrap();
+            v.HoldDressing();
+            v.HoldLettuce();
+            v.HoldCheese();
+            Assert.Collection<string>(v.Special, item =>
+            {
+                Assert.Equal("Hold Dressing", item);
+
+            },
+            item =>
+            {
+                Assert.Equal("Hold Lettuce", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Cheese", item);
+            }
+            );
+        }
     }
 }

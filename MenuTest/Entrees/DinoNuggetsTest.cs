@@ -85,5 +85,65 @@ namespace MenuTest.Entrees
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59*9);
         }
+        /// <summary>
+        /// Checks the description of the entree
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            DinoNuggets d = new DinoNuggets();
+            Assert.Equal("Dino-Nuggets", d.Description);
+        }
+        /// <summary>
+        /// Checks make there are no special instructions for a new instance of entree
+        /// </summary>
+        [Fact]
+        public void SpeicalShouldBeEmptyByDefault()
+        {
+            DinoNuggets d = new DinoNuggets();
+            Assert.Empty(d.Special);
+        }
+        /// <summary>
+        /// Checks whether or not the nugget count property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void AddNuggetShouldAddToSpecial()
+        {
+            DinoNuggets d = new DinoNuggets();
+            d.AddNugget();
+            Assert.Collection<string>(d.Special, item =>
+            {
+                Assert.Equal("1 Extra Nuggets", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not the nugget count property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void AddNuggetMultipleNuggetsShouldAddToSpecial()
+        {
+            DinoNuggets d = new DinoNuggets();
+            d.AddNugget();
+            d.AddNugget();
+            d.AddNugget();
+            d.AddNugget();
+            Assert.Collection<string>(d.Special, item =>
+            {
+                Assert.Equal("4 Extra Nuggets", item);
+            });
+        }
+        /// <summary>
+        /// Should update special instructions list
+        /// </summary>
+        [Fact]
+        public void AddingNuggetShouldNotifySpecialChange()
+        {
+            DinoNuggets d = new DinoNuggets();
+            Assert.PropertyChanged(d, "Special", () =>
+            {
+                d.AddNugget();
+            });
+        }
+
     }
 }

@@ -93,10 +93,84 @@ namespace MenuTest.Entrees
         public void HoldPeppersShouldAddToSpecial()
         {
             Brontowurst b = new Brontowurst();
+            b.HoldPeppers();
+            Assert.Collection<string>(b.Special, item =>
+            {
+                Assert.Equal("Hold Peppers", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not the onion property is changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void HoldOnionShouldAddToSpecial()
+        {
+            Brontowurst b = new Brontowurst();
+            b.HoldOnion();
+            Assert.Collection<string>(b.Special, item =>
+            {
+                Assert.Equal("Hold Onion", item);
+            });
+        }
+        /// <summary>
+        /// Checks whether or not all properties are changed, and the special list is updated
+        /// </summary>
+        [Fact]
+        public void HoldAllItemsShouldAddToSpecial()
+        {
+            Brontowurst b = new Brontowurst();
             b.HoldBun();
+            b.HoldPeppers();
+            b.HoldOnion();
             Assert.Collection<string>(b.Special, item =>
             {
                 Assert.Equal("Hold Bun", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Peppers", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Onion", item);
+            }
+            );
+        }
+
+        /// <summary>
+        /// Should update special instructions list
+        /// </summary>
+        [Fact]
+        public void HoldingBunShouldNotifySpecialChange()
+        {
+            Brontowurst b = new Brontowurst();
+            Assert.PropertyChanged(b, "Special", () =>
+            {
+                b.HoldBun();
+            });
+        }
+        /// <summary>
+        /// Should update special instructions list
+        /// </summary>
+        [Fact]
+        public void HoldingPeppersShouldNotifySpecialChange()
+        {
+            Brontowurst b = new Brontowurst();
+            Assert.PropertyChanged(b, "Special", () =>
+            {
+                b.HoldPeppers();
+            });
+        }
+        /// <summary>
+        /// Should update special instructions list
+        /// </summary>
+        [Fact]
+        public void HoldingOnionShouldNotifySpecialChange()
+        {
+            Brontowurst b = new Brontowurst();
+            Assert.PropertyChanged(b, "Special", () =>
+            {
+                b.HoldOnion();
             });
         }
     }

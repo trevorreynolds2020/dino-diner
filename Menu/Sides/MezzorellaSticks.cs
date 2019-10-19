@@ -1,15 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class MezzorellaSticks : Side
+    public class MezzorellaSticks : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// Enum for the size
         /// </summary>
         private Size size;
+        /// <summary>
+        /// An event handler for PropertChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Calls PropertChangedEventHandler if a specific property changes
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void INotifyIfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets info about food item based on the size enum
         /// </summary>
@@ -53,6 +67,13 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{Size} Mezzorella Sticks";
+        }
+        /// <summary>
+        /// Gets a description of the order item
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
         }
     }
 }

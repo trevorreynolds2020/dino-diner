@@ -1,16 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Triceritots : Side
+    public class Triceritots : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// Size enum
         /// </summary>
         private Size size;
-       
+        /// <summary>
+        /// An event handler for PropertChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Calls PropertChangedEventHandler if a specific property changes
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void INotifyIfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Captures all the relevant details about the side
         /// </summary>
@@ -54,6 +67,13 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{Size} Triceritots";
+        }
+        /// <summary>
+        /// Gets a description of the order item
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
         }
     }
 }

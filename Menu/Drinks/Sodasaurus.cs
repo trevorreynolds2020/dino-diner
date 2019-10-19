@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, INotifyPropertyChanged
     {
         private SodasaurusFlavor flavor;
         public SodasaurusFlavor Flavor {
@@ -15,6 +15,19 @@ namespace DinoDiner.Menu
         public Size size;
         public double Price { get; set; } = 1.5;
 
+        /// <summary>
+        /// An event handler for PropertChanged events
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Calls PropertChangedEventHandler if a specific property changes
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void INotifyIfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public override Size Size
         {
             set
@@ -52,5 +65,13 @@ namespace DinoDiner.Menu
         {
             return $"{Size} {Flavor} Sodasaurus";
         }
+        /// <summary>
+        /// Gets a description of the order item
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+        // special instructions?
     }
 }

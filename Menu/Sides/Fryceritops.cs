@@ -1,18 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Fryceritops : Side
+    public class Fryceritops : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// Enum for the size
         /// </summary>
         private Size size;
+
         /// <summary>
-        /// Gets the info based on the size of the order
+        /// An event handler for PropertChanged events
         /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Calls PropertChangedEventHandler if a specific property changes
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void INotifyIfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public override Size Size
         {
             set
@@ -52,5 +64,13 @@ namespace DinoDiner.Menu
         {
             return $"{Size} Fryceritops";
         }
+        /// <summary>
+        /// Gets a description of the order item
+        /// </summary>
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+        // special instructions ?
     }
 }

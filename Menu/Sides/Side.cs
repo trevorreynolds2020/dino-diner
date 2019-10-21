@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu 
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Size of side
@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Relevant details about the side
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem
     {
         protected List<string> ingredients = new List<string>();
         /// <summary>
@@ -33,6 +33,7 @@ namespace DinoDiner.Menu
         /// Gets or sets the size
         /// </summary>
         public virtual Size Size { get; set; } //should be abstract
-
+        public abstract string Description { get; }
+        public abstract string[] Special { get; }
     }
 }

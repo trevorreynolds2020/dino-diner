@@ -6,9 +6,10 @@ namespace DinoDiner.Menu
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged
+    public class CretaceousCombo : Entree , IMenuItem, INotifyPropertyChanged, IOrderItem
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void INotifyIfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -20,13 +21,9 @@ namespace DinoDiner.Menu
             protected set
             {
                 entree = value;
-                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args)
-                {
-                    INotifyIfPropertyChanged(args.PropertyName);
-                }
             }
         }
-        public string[] Special
+        public override string[] Special
         {
             get
             {
@@ -40,7 +37,7 @@ namespace DinoDiner.Menu
             }
         }
 
-        public string Description
+        public override string Description
         {
             get
             {
@@ -50,11 +47,6 @@ namespace DinoDiner.Menu
         // Backing Variables
         private Size size;
 
-
-        /// <summary>
-        /// Gets and sets the entree
-        /// </summary>
-        public Entree Entree { get; protected set; }
 
         /// <summary>
         /// Gets and sets the side
@@ -110,7 +102,6 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
-                //NotifyIfPropertyChanged("Size");
                 INotifyIfPropertyChanged("Size");
                 INotifyIfPropertyChanged("Special");
                 INotifyIfPropertyChanged("Price");
@@ -140,7 +131,7 @@ namespace DinoDiner.Menu
         /// <param name="entree">The entree to use</param>
         public CretaceousCombo(Entree entree)
         {
-            this.Entree = entree;
+            Entree = entree;
         }
         public override string ToString()
         {

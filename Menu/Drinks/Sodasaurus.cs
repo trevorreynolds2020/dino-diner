@@ -5,7 +5,7 @@ using DinoDiner;
 using System.ComponentModel;
 namespace DinoDiner.Menu
 {
-    public class Sodasaurus : Drink, INotifyPropertyChanged
+    public class Sodasaurus : Drink, INotifyPropertyChanged, IOrderItem
     {
         private SodasaurusFlavor flavor;
         public SodasaurusFlavor Flavor {
@@ -68,10 +68,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets a description of the order item
         /// </summary>
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
+
         // special instructions?
     }
 }

@@ -61,8 +61,8 @@ namespace MenuTest.Entrees
         [Fact]
         public void DescriptionShouldBeCorrect()
         {
-            PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.Equal("Brontoworst", pbj.Description);
+            Brontowurst bw = new Brontowurst();
+            Assert.Equal("Brontowurst", bw.Description);
         }
         /// <summary>
         /// Checks make there are no special instructions for a new instance of entree
@@ -109,7 +109,7 @@ namespace MenuTest.Entrees
             b.HoldOnion();
             Assert.Collection<string>(b.Special, item =>
             {
-                Assert.Equal("Hold Onion", item);
+                Assert.Equal("Hold Onions", item);
             });
         }
         /// <summary>
@@ -120,19 +120,19 @@ namespace MenuTest.Entrees
         {
             Brontowurst b = new Brontowurst();
             b.HoldBun();
-            b.HoldPeppers();
             b.HoldOnion();
+            b.HoldPeppers();
             Assert.Collection<string>(b.Special, item =>
             {
                 Assert.Equal("Hold Bun", item);
+            },            
+            item =>
+            {
+                Assert.Equal("Hold Onions", item);
             },
             item =>
             {
                 Assert.Equal("Hold Peppers", item);
-            },
-            item =>
-            {
-                Assert.Equal("Hold Onion", item);
             }
             );
         }

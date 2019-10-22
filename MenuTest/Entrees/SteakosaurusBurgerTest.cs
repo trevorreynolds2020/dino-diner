@@ -145,8 +145,9 @@ namespace MenuTest.Entrees
             SteakosaurusBurger s = new SteakosaurusBurger();
             s.HoldBun();
             s.HoldPickle();
-            s.HoldKetchup();
             s.HoldMustard();
+            s.HoldKetchup();
+            
             Assert.Collection<string>(s.Special, item =>
             {
                 Assert.Equal("Hold Bun", item);
@@ -157,12 +158,13 @@ namespace MenuTest.Entrees
             },
             item =>
             {
-                Assert.Equal("Hold Ketchup", item);
+                Assert.Equal("Hold Mustard", item);
             },
             item =>
             {
-                Assert.Equal("Hold Mustard", item);
-            });
+                Assert.Equal("Hold Ketchup", item);
+            }
+            );
         }
         /// <summary>
         /// Should update special instructions list

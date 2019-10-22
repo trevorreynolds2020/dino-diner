@@ -93,7 +93,11 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "s";
+            for (int i = 0; i <= AvailableMenuItems.Count; i++)
+            {
+                return AvailableMenuItems[i].ToString() + " \n";
+            }
+            return "";
         }
     }
 }

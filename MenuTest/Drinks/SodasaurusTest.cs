@@ -69,7 +69,7 @@ namespace MenuTest.Drinks
         public void DescriptionShouldBeCorrect()
         {
             Sodasaurus s = new Sodasaurus();
-            Assert.Equal("Small _ Sodasaurus", s.Description);
+            Assert.Equal("Small " + s.Flavor.ToString()+" Sodasaurus", s.Description);
         }
     }
 }

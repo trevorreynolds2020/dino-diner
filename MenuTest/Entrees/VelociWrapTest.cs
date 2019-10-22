@@ -38,7 +38,7 @@ namespace MenuTest.Entrees
         {
             VelociWrap vw = new VelociWrap();
             vw.HoldDressing();
-            Assert.DoesNotContain<string>("Dressing", vw.Ingredients);
+            Assert.DoesNotContain<string>("Ceasar Dressing", vw.Ingredients);
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace MenuTest.Entrees
         {
             VelociWrap vw = new VelociWrap();
             vw.HoldLettuce();
-            Assert.DoesNotContain<string>("Lettuce", vw.Ingredients);
+            Assert.DoesNotContain<string>("Romaine Lettuce", vw.Ingredients);
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace MenuTest.Entrees
             v.HoldDressing();
             Assert.Collection<string>(v.Special, item =>
             {
-                Assert.Equal("Hold Dressing", item);
+                Assert.Equal("Hold Ceasar Dressing", item);
             });
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace MenuTest.Entrees
             v.HoldLettuce();
             Assert.Collection<string>(v.Special, item =>
             {
-                Assert.Equal("Hold Lettuce", item);
+                Assert.Equal("Hold Romaine Lettuce", item);
             });
         }
         /// <summary>
@@ -110,33 +110,34 @@ namespace MenuTest.Entrees
             v.HoldCheese();
             Assert.Collection<string>(v.Special, item =>
             {
-                Assert.Equal("Hold Cheese", item);
+                Assert.Equal("Hold Parmesan Cheese", item);
             });
         }
         /// <summary>
         /// Checks whether or not all properties are changed, and the special list is updated
         /// </summary>
         [Fact]
-        public void HoldPeanutButterAndJellyShouldAddToSpecial()
+        public void HoldingAllItemsShouldAddToSpecial()
         {
             VelociWrap v = new VelociWrap();
-            v.HoldDressing();
-            v.HoldLettuce();
             v.HoldCheese();
-            Assert.Collection<string>(v.Special, item =>
-            {
-                Assert.Equal("Hold Dressing", item);
-
-            },
-            item =>
-            {
-                Assert.Equal("Hold Lettuce", item);
-            },
-            item =>
-            {
-                Assert.Equal("Hold Cheese", item);
-            }
-            );
+            v.HoldLettuce();
+            v.HoldDressing();
+            Assert.Collection<string>(v.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Parmesan Cheese", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Romaine Lettuce", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ceasar Dressing", item);
+                });
         }
+
     }
 }
+

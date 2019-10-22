@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
     /// <summary>
@@ -11,7 +11,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Relevant details about the side
     /// </summary>
-    public abstract class Side : IMenuItem, IOrderItem
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         protected List<string> ingredients = new List<string>();
         /// <summary>
@@ -32,8 +32,10 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public virtual Size Size { get; set; } //should be abstract
+        public virtual Size Size { get; set; }
         public abstract string Description { get; }
         public abstract string[] Special { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

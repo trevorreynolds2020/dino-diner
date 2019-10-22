@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+
 namespace DinoDiner.Menu
 {
-    public class JurassicJava:Drink,  INotifyPropertyChanged
+    public class JurassicJava : Drink,  INotifyPropertyChanged, IOrderItem
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -12,7 +13,16 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Coffee");
+                return ingredients;
+            }
+        }
         private Size size;
         public bool RoomForCream { get; set; } = false;
         public bool Decaf { get; set; } = false;
@@ -36,25 +46,26 @@ namespace DinoDiner.Menu
                         Calories = 8;
                         break;
                 }
+                INotifyIfPropertyChanged("Ingredients");
+                INotifyIfPropertyChanged("Special");
             }
             get { return size; }
         }
         public JurassicJava()
         {
-            size = Size.Small;
             Ice = false;
-            ingredients.Add("Water");
-            ingredients.Add("Coffee");
+            Price = 0.59;
+            Calories = 2;
         }
         public void LeaveRoomForCream()
         {
-            RoomForCream = true;
+            this.RoomForCream = true;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
         public void AddIce()
         {
-            Ice = true;
+            this.Ice = true;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
@@ -67,7 +78,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets a description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
@@ -75,13 +86,13 @@ namespace DinoDiner.Menu
         /// Special order instructions
         /// if no special instructions return an empty array
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!RoomForCream) special.Add("Leave Room For Cream");
-                if (!Ice) special.Add("Add Ice");
+                if (RoomForCream) special.Add("Leave Room For Cream");
+                if (Ice) special.Add("Add Ice");
                 return special.ToArray();
             }
         }

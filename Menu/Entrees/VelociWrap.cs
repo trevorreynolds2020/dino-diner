@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace DinoDiner.Menu
 
 {
-    public class VelociWrap : Entree, INotifyPropertyChanged
+    public class VelociWrap : Entree, INotifyPropertyChanged, IOrderItem
     {
 
         public bool Dressing = true;
@@ -32,8 +32,7 @@ namespace DinoDiner.Menu
                 List<string> ingredients = new List<string>() { "Chicken Breast", "Flour Tortilla"};
                 if (Dressing) ingredients.Add("Ceasar Dressing");
                 if (Lettuce) ingredients.Add("Romaine Lettuce");
-                if (Cheese) ingredients.Add("Parmesan Cheese");
-               
+                if (Cheese) ingredients.Add("Parmesan Cheese");              
                 return ingredients;
             }
         }
@@ -70,7 +69,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets a description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
@@ -78,14 +77,14 @@ namespace DinoDiner.Menu
         /// Special order instructions
         /// if no special instructions return an empty array
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {
                 List<string> special = new List<string>();
-                if (!Dressing) special.Add("Hold Dressing");
-                if (!Lettuce) special.Add("Hold Lettuce");
-                if (!Cheese) special.Add("Hold Cheese");
+                if (!Cheese) special.Add("Hold Parmesan Cheese");
+                if (!Lettuce) special.Add("Hold Romaine Lettuce");
+                if (!Dressing) special.Add("Hold Ceasar Dressing");                        
                 return special.ToArray();
             }
         }

@@ -4,7 +4,7 @@ using System.Text;
 using System.ComponentModel;
 namespace DinoDiner.Menu
 {
-    public class MeteorMacAndCheese : Side, INotifyPropertyChanged
+    public class MeteorMacAndCheese : Side, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Enum for size of food item
@@ -68,9 +68,21 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets a description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
+        }
+        /// <summary>
+        /// Special order instructions
+        /// if no special instructions return an empty array
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
         }
     }
 }

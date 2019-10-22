@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Drink : IMenuItem, IOrderItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         protected List<string> ingredients = new List<string>();
         public virtual Size Size { get; set; }
@@ -15,6 +16,8 @@ namespace DinoDiner.Menu
         public bool Ice { get; set; } = true;
         public abstract string Description { get; }
         public abstract string[] Special { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void HoldIce()
         {

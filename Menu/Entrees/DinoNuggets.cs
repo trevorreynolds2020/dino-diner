@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class DinoNuggets : Entree, INotifyPropertyChanged
+    public class DinoNuggets : Entree, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Number of chicken nuggets
@@ -57,7 +57,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets a description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
@@ -65,7 +65,7 @@ namespace DinoDiner.Menu
         /// Special order instructions
         /// if no special instructions return an empty array
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

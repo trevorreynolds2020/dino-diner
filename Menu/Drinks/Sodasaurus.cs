@@ -65,10 +65,25 @@ namespace DinoDiner.Menu
         {
             return $"{Size} {Flavor} Sodasaurus";
         }
+     
         /// <summary>
         /// Gets a description of the order item
         /// </summary>
-
-        // special instructions?
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+        /// <summary>
+        /// Special order instructions
+        /// if no special instructions return an empty array
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
     }
 }

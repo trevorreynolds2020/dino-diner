@@ -29,6 +29,11 @@ namespace DinoDiner.Menu.Entrees
                 return ingredients;
             }
         }
+
+        public override string Description => throw new NotImplementedException(); // change at some point
+
+        public override string[] Special => throw new NotImplementedException();
+
         public PlesiousaurusPattie()
         {
             mayo = true;

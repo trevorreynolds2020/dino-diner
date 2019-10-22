@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Fryceritops : Side, INotifyPropertyChanged
+    public class Fryceritops : Side, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// Enum for the size
@@ -45,10 +45,22 @@ namespace DinoDiner.Menu
                         Calories = 480;
                         break;
                 }
+                INotifyIfPropertyChanged("Price");
+                INotifyIfPropertyChanged("Calories");
             }
             get { return size; }
         }
-       
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Potato");
+                ingredients.Add("Salt");
+                ingredients.Add("Vegetable Oil");
+                return ingredients;
+            }
+        }
         /// <summary>
         /// Initializes the info and ingredients for the side
         /// </summary>
@@ -56,9 +68,6 @@ namespace DinoDiner.Menu
         {
             Price = 0.99;
             Calories = 222;
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
         }
         public override string ToString()
         {
@@ -67,10 +76,21 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets a description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
-        // special instructions ?
+        /// <summary>
+        /// Special order instructions
+        /// if no special instructions return an empty array
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
     }
 }

@@ -89,13 +89,23 @@ namespace MenuTest.Drinks
             Assert.Equal<int>(2, j.Ingredients.Count);
         }
         /// <summary>
-        /// Checks the description of the entree
+        /// Checks the description of the drink
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrectForDecaf()
+        {
+            JurassicJava j = new JurassicJava();
+            j.Decaf = true;
+            Assert.Equal($"{j.Size} Decaf Jurassic Java", j.Description);
+        }
+        /// <summary>
+        /// Checks the description of the drink
         /// </summary>
         [Fact]
         public void DescriptionShouldBeCorrect()
         {
-            PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.Equal("Prehistoric PB&J", pbj.Description);
+            JurassicJava j = new JurassicJava();
+            Assert.Equal($"{j.Size} Jurassic Java", j.Description);
         }
         /// <summary>
         /// Checks make there are no special instructions for a new instance of entree
@@ -103,8 +113,8 @@ namespace MenuTest.Drinks
         [Fact]
         public void SpeicalShouldBeEmptyByDefault()
         {
-            PrehistoricPBJ pbj = new PrehistoricPBJ();
-            Assert.Empty(pbj.Special);
+            JurassicJava j = new JurassicJava();
+            Assert.Empty(j.Special);
         }
         /// <summary>
         /// Checks whether or not the leave room for cream property is changed, and the special list is updated
@@ -172,6 +182,70 @@ namespace MenuTest.Drinks
             Assert.PropertyChanged(j, "Special", () =>
             {
                 j.AddIce();
+            });
+        }
+        /// <summary>
+        /// Checks name for a given size
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrectForSmall()
+        {
+            JurassicJava j = new JurassicJava();
+            j.Size = Size.Small;
+            Assert.Equal("Small Jurassic Java", j.Description);
+        }
+        /// <summary>
+        /// Checks name for a given size
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrectForMedium()
+        {
+            JurassicJava j = new JurassicJava();
+            j.Size = Size.Medium;
+            Assert.Equal("Medium Jurassic Java", j.Description);
+        }
+        /// <summary>
+        /// Checks name for a given size
+        /// </summary>
+        [Fact]
+        public void DescriptionShouldBeCorrectForLarge()
+        {
+            JurassicJava j = new JurassicJava();
+            j.Size = Size.Large;
+            Assert.Equal("Large Jurassic Java", j.Description);
+        }
+        /// <summary>
+        /// Checks if change of price effects the price property for the drink
+        /// </summary>
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyPriceChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Price", () =>
+            {
+                j.Size = Size.Small;
+            });
+        }
+        /// <summary>
+        /// Checks if change of price effects the price property for the drink
+        /// </summary>
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyPriceChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Price", () =>
+            {
+                j.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyPriceChange()
+        {
+            JurassicJava j = new JurassicJava();
+            Assert.PropertyChanged(j, "Price", () =>
+            {
+                j.Size = Size.Large;
             });
         }
     }

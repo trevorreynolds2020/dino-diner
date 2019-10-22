@@ -51,7 +51,20 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets the side
         /// </summary>
-        public Side Side { get; set; } = new Fryceritops();
+        private Side side;
+        public Side Side
+        {
+            get { return side; }
+            set
+            {
+                this.side = value;
+                this.side.Size = this.size;
+                INotifyIfPropertyChanged("Ingredients");
+                INotifyIfPropertyChanged("Special");
+                INotifyIfPropertyChanged("Price");
+                INotifyIfPropertyChanged("Calories");
+            }
+        }
 
         private Drink drink = new Sodasaurus();
         /// <summary>
@@ -61,6 +74,8 @@ namespace DinoDiner.Menu
         { get { return drink; }
           set
           {
+                this.drink = value;
+                this.drink.Size = this.size;
                 INotifyIfPropertyChanged("Ingredients");
                 INotifyIfPropertyChanged("Calories");
                 INotifyIfPropertyChanged("Price");

@@ -4,7 +4,7 @@ using System.Text;
 using System.ComponentModel;
 namespace DinoDiner.Menu
 {
-    public class Tyrannotea:Drink, INotifyPropertyChanged
+    public class Tyrannotea:Drink, INotifyPropertyChanged, IOrderItem
     {
         public bool Sweet { get; set; } = false;
         public bool Lemon = false;
@@ -90,7 +90,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets a description of the order item
         /// </summary>
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
@@ -98,7 +98,7 @@ namespace DinoDiner.Menu
         /// Special order instructions
         /// if no special instructions return an empty array
         /// </summary>
-        public string[] Special
+        public override string[] Special
         {
             get
             {

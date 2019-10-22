@@ -63,7 +63,7 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return $"{size} Meteor Mac and Cheese";
+            return $"{Size} Meteor Mac and Cheese";
         }
         /// <summary>
         /// Gets a description of the order item

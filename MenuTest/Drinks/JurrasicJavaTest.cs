@@ -111,7 +111,7 @@ namespace MenuTest.Drinks
         /// Checks make there are no special instructions for a new instance of entree
         /// </summary>
         [Fact]
-        public void SpeicalShouldBeEmptyByDefault()
+        public void SpecialShouldBeEmptyByDefault()
         {
             JurassicJava j = new JurassicJava();
             Assert.Empty(j.Special);
@@ -124,10 +124,14 @@ namespace MenuTest.Drinks
         {
             JurassicJava j = new JurassicJava();
             j.LeaveRoomForCream();
-            Assert.Collection<string>(j.Special, item =>
+            if (j.RoomForCream == false)
             {
-                Assert.Equal("Leave Room For Cream", item);
-            });
+                Assert.Collection<string>(j.Special,
+                    item =>
+                    {
+                        Assert.Equal("Hold Cream", item);
+                    });
+            }
         }
         /// <summary>
         /// Checks whether or not the ice is changed, and the special list is updated
@@ -149,16 +153,25 @@ namespace MenuTest.Drinks
         public void RoomForCreamAndAddIceShouldAddToSpecial()
         {
             JurassicJava j = new JurassicJava();
-            j.LeaveRoomForCream();
             j.AddIce();
-            Assert.Collection<string>(j.Special, item =>
+            j.LeaveRoomForCream();
+
+            if (j.RoomForCream == false && j.Ice == false)
             {
-                Assert.Equal("Leave Room For Cream", item);
-            },
-            item =>
-            {
-                Assert.Equal("Add Ice", item);
-            });
+                Assert.Collection<string>(j.Special,
+                    item =>
+                    {
+                        Assert.Equal($"{j.Size}", item);
+                    },
+                    item =>
+                    {
+                        Assert.Equal("Hold Cream", item);
+                    },
+                    item =>
+                    {
+                        Assert.Equal("Hold Ice", item);
+                    });
+            }
         }
         /// <summary>
         /// Should update special instructions list

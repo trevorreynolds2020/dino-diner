@@ -6,8 +6,17 @@ namespace DinoDiner.Menu
 {
     public class Tyrannotea:Drink, INotifyPropertyChanged, IOrderItem
     {
+        /// <summary>
+        /// Indicate whether or not to make tea sweet
+        /// </summary>
         public bool Sweet { get; set; } = false;
+        /// <summary>
+        /// Indicate whether or not include lemon
+        /// </summary>
         public bool Lemon = false;
+        /// <summary>
+        /// small, medium, or large
+        /// </summary>
         public Size size;
 
         /// <summary>
@@ -23,6 +32,9 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /// <summary>
+        /// small, medium, or large
+        /// </summary>
         public override Size Size
         {
             set
@@ -46,24 +58,31 @@ namespace DinoDiner.Menu
             }
             get { return size; }
         }
+        /// <summary>
+        /// Constructs the tea 
+        /// </summary>
         public Tyrannotea()
         {
-            Price = 0;
-            Calories = 0;
+            Price = .99;
+            Calories = 8;
             Ice = true;
             ingredients.Add("Water");
             ingredients.Add("Tea");
             ingredients.Add("Lemon");
             ingredients.Add("Cane Sugar");
         }
-
+        /// <summary>
+        /// Adds lemon
+        /// </summary>
         public void AddLemon()
         {
             Lemon = true;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
-
+        /// <summary>
+        /// Adds sweetner
+        /// </summary>
         public void AddSweetner()
         {
             Sweet = true;
@@ -71,17 +90,11 @@ namespace DinoDiner.Menu
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
-        public void NoSweetner()
-        {
-            if(Sweet)
-            {
-                Sweet = false;
-                Calories /= 2;
-            }
-            INotifyIfPropertyChanged("Ingredients");
-            INotifyIfPropertyChanged("Special");
-        }
-
+        
+        /// <summary>
+        /// Returns a string describing the object
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             if (Sweet) return $"{Size} Sweet Tyrannotea";

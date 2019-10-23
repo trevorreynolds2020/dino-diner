@@ -7,6 +7,9 @@ namespace DinoDiner.Menu
 {
     public class Menu
     {
+        /// <summary>
+        /// Gets all available items
+        /// </summary>
        public List<IMenuItem> AvailableMenuItems
        {
             get
@@ -37,7 +40,9 @@ namespace DinoDiner.Menu
                 return AvailableMenuItems;
             }
        }
-
+        /// <summary>
+        /// Gets all available entrees
+        /// </summary>
         public List<IMenuItem> AvailableEntrees
         {
             get
@@ -52,7 +57,9 @@ namespace DinoDiner.Menu
                 return AvailableEntrees;
             }
         }
-
+        /// <summary>
+        /// Gets all available sides
+        /// </summary>
         public List<IMenuItem> AvailableSides
         {
             get
@@ -64,6 +71,9 @@ namespace DinoDiner.Menu
                 return AvailableSides;
             }
         }
+        /// <summary>
+        /// /Gets all available drinks
+        /// </summary>
         public List<IMenuItem> AvailableDrinks
         {
             get
@@ -75,7 +85,9 @@ namespace DinoDiner.Menu
                 return AvailableDrinks;
             }
         }
-
+        /// <summary>
+        /// Gets all available combos
+        /// </summary>
         public List<IMenuItem> AvailableCombos
         {
             get
@@ -90,7 +102,10 @@ namespace DinoDiner.Menu
                 return AvailableCombos;
             }
         }
-
+        /// <summary>
+        /// Returns all available items as one continuous string 
+        /// </summary>
+        /// <returns> all items as string </returns>
         public override string ToString()
         {
             for (int i = 0; i <= AvailableMenuItems.Count; i++)

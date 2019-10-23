@@ -8,13 +8,26 @@ namespace DinoDiner.Menu
     /// </summary>
     public class CretaceousCombo : Entree , IMenuItem, INotifyPropertyChanged, IOrderItem
     {
+        /// <summary>
+        /// An event handler for PropertChanged events
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Calls PropertChangedEventHandler if a specific property changes
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void INotifyIfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /// <summary>
+        /// Backing variable for entree
+        /// </summary>
         private Entree entree;
+        /// <summary>
+        /// /Gets the main dish
+        /// </summary>
         public Entree Entree
         {
             get { return entree; }
@@ -23,6 +36,9 @@ namespace DinoDiner.Menu
                 entree = value;
             }
         }
+        /// <summary>
+        /// Returns a list of special instructions
+        /// </summary>
         public override string[] Special
         {
             get
@@ -36,7 +52,9 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
-
+        /// <summary>
+        /// The description is the string representation of the entree
+        /// </summary>
         public override string Description
         {
             get
@@ -65,7 +83,9 @@ namespace DinoDiner.Menu
                 INotifyIfPropertyChanged("Calories");
             }
         }
-
+        /// <summary>
+        /// Backing variable for drink
+        /// </summary>
         private Drink drink = new Sodasaurus();
         /// <summary>
         /// Gets and sets the drink
@@ -148,6 +168,10 @@ namespace DinoDiner.Menu
         {
             Entree = entree;
         }
+        /// <summary>
+        /// Returns name of combo
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{Entree} Combo";

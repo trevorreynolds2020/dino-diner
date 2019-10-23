@@ -22,6 +22,9 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /// <summary>
+        /// Contains all ingredients, which in this case are just nuggets
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -34,13 +37,17 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// Constructs an instance of dino nuggets
+        /// </summary>
         public DinoNuggets()
         {
             Price = 4.25;
             Calories = 59*6;
         }
-
+        /// <summary>
+        /// Adds a nugget
+        /// </summary>
         public void AddNugget()
         {
             Price += .25;
@@ -49,6 +56,10 @@ namespace DinoDiner.Menu
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
+        /// <summary>
+        /// Name of entree as string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Dino-Nuggets";

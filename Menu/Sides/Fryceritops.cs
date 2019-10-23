@@ -25,6 +25,9 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /// <summary>
+        /// Small, medium, large
+        /// </summary>
         public override Size Size
         {
             set
@@ -50,6 +53,9 @@ namespace DinoDiner.Menu
             }
             get { return size; }
         }
+        /// <summary>
+        /// Stores the ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -69,6 +75,10 @@ namespace DinoDiner.Menu
             Price = 0.99;
             Calories = 222;
         }
+        /// <summary>
+        /// Returns the name
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{Size} Fryceritops";

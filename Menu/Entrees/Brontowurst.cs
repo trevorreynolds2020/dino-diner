@@ -7,9 +7,17 @@ namespace DinoDiner.Menu
     public class Brontowurst : Entree, INotifyPropertyChanged, IOrderItem
     {
         
-
+        /// <summary>
+        /// Indicates whether or not to include bun
+        /// </summary>
         public bool Bun = true;
+        /// <summary>
+        /// Indicates whether or not to include peppers
+        /// </summary>
         public bool Peppers = true;
+        /// <summary>
+        /// Indicates whether or not to include onion
+        /// </summary>
         public bool Onion = true;
 
         /// <summary>
@@ -25,6 +33,9 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /// <summary>
+        /// Contains all the ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -36,33 +47,45 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// Creates an instance of brontowurst
+        /// </summary>
         public Brontowurst()
         {
             Price = 5.36;
             Calories = 498;
         }
-
+        /// <summary>
+        /// Don't use bun
+        /// </summary>
         public void HoldBun()
         {
             Bun = false;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
-
+        /// <summary>
+        /// Don't use peppers
+        /// </summary>
         public void HoldPeppers()
         {
             Peppers = false;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
+        /// <summary>
+        /// Don't use onion
+        /// </summary>
         public void HoldOnion()
         {
             Onion = false;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
-
+        /// <summary>
+        /// Returns brontowurst - the string name
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Brontowurst";

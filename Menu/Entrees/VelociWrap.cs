@@ -6,9 +6,17 @@ namespace DinoDiner.Menu
 {
     public class VelociWrap : Entree, INotifyPropertyChanged, IOrderItem
     {
-
+        /// <summary>
+        /// Indicates whether or not to include dressing
+        /// </summary>
         public bool Dressing = true;
+        /// <summary>
+        /// Indicates whether or not to include lettuce
+        /// </summary>
         public bool Lettuce = true;
+        /// <summary>
+        /// Indicates whether or not to include cheese
+        /// </summary>
         public bool Cheese = true;
         /// <summary>
         /// An event handler for PropertChanged events
@@ -24,7 +32,9 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
+        /// <summary>
+        /// Stores ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -36,32 +46,45 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// Constructs an instance of wrap
+        /// </summary>
         public VelociWrap()
         {
             Price = 6.86;
             Calories = 356;
         }
-
+        /// <summary>
+        /// Don't use dressing
+        /// </summary>
         public void HoldDressing()
         {
             Dressing = false;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
-
+        /// <summary>
+        /// Hold cheese
+        /// </summary>
         public void HoldCheese()
         {
             Cheese = false;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
+        /// <summary>
+        /// Hold lettuce
+        /// </summary>
         public void HoldLettuce()
         {
             Lettuce = false;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
+        /// <summary>
+        /// Returns name of entree
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Veloci-Wrap";

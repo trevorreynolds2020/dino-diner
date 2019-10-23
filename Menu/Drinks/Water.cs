@@ -7,7 +7,13 @@ namespace DinoDiner.Menu
 {
     public class Water:Drink, INotifyPropertyChanged, IOrderItem
     {
+        /// <summary>
+        /// Indicates whether or not to use lemon
+        /// </summary>
         public bool Lemon = false;
+        /// <summary>
+        /// small, medium, or large
+        /// </summary>
         public Size size;
         /// <summary>
         /// An event handler for PropertChanged events
@@ -22,6 +28,9 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /// <summary>
+        /// small, medium, or large
+        /// </summary>
         public override Size Size
         {
             set
@@ -45,7 +54,9 @@ namespace DinoDiner.Menu
             }
             get { return size; }
         }
-
+        /// <summary>
+        /// Constructs an instance of water
+        /// </summary>
         public Water()
         {
             Price = 0.10;
@@ -53,14 +64,19 @@ namespace DinoDiner.Menu
             Ice = true;
             ingredients.Add("Water");
         }
-
+        /// <summary>
+        /// Adds lemon
+        /// </summary>
         public void AddLemon()
         {
             Lemon = true;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
-
+        /// <summary>
+        /// Returns a string "water"
+        /// </summary>
+        /// <returns> "Water" </returns>
         public override string ToString()
         {
             return $"{Size} Water";

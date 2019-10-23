@@ -7,12 +7,24 @@ namespace DinoDiner.Menu
 {
     public class Sodasaurus : Drink, INotifyPropertyChanged, IOrderItem
     {
+        /// <summary>
+        /// Backing variable for the flavor
+        /// </summary>
         private SodasaurusFlavor flavor;
+        /// <summary>
+        /// Calls enum to get small, medium, large
+        /// </summary>
         public SodasaurusFlavor Flavor {
             get { return flavor; } 
             set { flavor = value; }
         }
+        /// <summary>
+        /// small, medium, or large
+        /// </summary>
         public Size size;
+        /// <summary>
+        /// price of the coffee
+        /// </summary>
         public double Price { get; set; } = 1.5;
 
         /// <summary>
@@ -28,6 +40,9 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /// <summary>
+        /// small, medium, or large
+        /// </summary>
         public override Size Size
         {
             set
@@ -51,6 +66,9 @@ namespace DinoDiner.Menu
             }
             get { return size; }
         }
+        /// <summary>
+        /// Constructs soda with default price and calories
+        /// </summary>
         public Sodasaurus()
         {
             Price = 0;
@@ -60,7 +78,10 @@ namespace DinoDiner.Menu
             ingredients.Add("Natural Flavors");
             ingredients.Add("Cane Sugar");
         }
-
+        /// <summary>
+        /// Returns a string with the details of soda
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{Size} {Flavor} Sodasaurus";

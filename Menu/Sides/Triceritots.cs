@@ -63,7 +63,10 @@ namespace DinoDiner.Menu
             ingredients.Add("Vegetable Oil");
 
         }
-
+        /// <summary>
+        /// Returns name of side
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{Size} Triceritots";

@@ -5,7 +5,13 @@ namespace DinoDiner.Menu
 {
     public class PrehistoricPBJ : Entree, INotifyPropertyChanged, IOrderItem
     {
+        /// <summary>
+        /// Indicates whether or not to include peanut butter 
+        /// </summary>
         private bool peanutButter = true;
+        /// <summary>
+        /// Indicates whether or not to include jelly
+        /// </summary>
         private bool jelly = true;
 
         /// <summary>
@@ -21,7 +27,9 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        /// <summary>
+        /// Ingredient list 
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -32,27 +40,36 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// Constructs an instance of pb&j
+        /// </summary>
         public PrehistoricPBJ()
         {
             Price = 6.52;
             Calories = 483;
         }
-
+        /// <summary>
+        /// Holds peanut butter
+        /// </summary>
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
-
+        /// <summary>
+        /// Doesn't include jelly
+        /// </summary>
         public void HoldJelly()
         {
             this.jelly = false;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
-
+        /// <summary>
+        /// Returns string for pb&j
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Prehistoric PB&J";

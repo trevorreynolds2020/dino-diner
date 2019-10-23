@@ -18,6 +18,9 @@ namespace DinoDiner.Menu
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /// <summary>
+        /// Stores ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -26,13 +29,18 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// Constructs an instance of pterodactyl wings
+        /// </summary>
         public PterodactylWings()
         {
             Price = 7.21;
             Calories = 318;
         }
-
+        /// <summary>
+        /// Returns entree name
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Pterodactyl Wings";

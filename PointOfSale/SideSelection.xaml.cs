@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using DinoDiner.Menu;
+using DDSize = DinoDiner.Menu.Size;
 namespace PointOfSale
 {
     /// <summary>
@@ -20,9 +21,74 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        private Side side;
         public SideSelection()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Adds side to the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectFryceritops(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                side = new Fryceritops();
+                order.Items.Add(side);
+            }
+        }
+        /// <summary>
+        /// Adds side to the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectMeteorMacAndCheese(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                side = new MeteorMacAndCheese();
+                order.Items.Add(side);
+            }
+        }
+        /// <summary>
+        /// Adds side to the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectMezzorellaSticks(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                side = new MezzorellaSticks();
+                order.Items.Add(side);
+            }
+        }
+        /// <summary>
+        /// Adds side to the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectTriceritots(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                side = new Triceritots();
+                order.Items.Add(side);
+            }
+        }
+        /// <summary>
+        /// Changes size of element object
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+            }
         }
     }
 }

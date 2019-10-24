@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="100"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="SelectFryceritops">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-08.png"/>
             </Button.Background>
@@ -23,7 +23,7 @@
                 Fryceritops
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectMeteorMacAndCheese">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-09.png"/>
             </Button.Background>
@@ -31,7 +31,7 @@
                 Meteor Mac And Cheese
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectMezzorellaSticks">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-10.png"/>
             </Button.Background>
@@ -39,7 +39,7 @@
                 Mezzorella Sticks
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectTriceritots">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-11.png"/>
             </Button.Background>
@@ -47,9 +47,9 @@
                 Triceritots
             </TextBlock>
         </Button>
-        <RadioButton>Small</RadioButton>
-        <RadioButton>Medium</RadioButton>
-        <RadioButton>Large</RadioButton>
+        <RadioButton Tag="Small" Click="OnChangeSize">Small</RadioButton>
+        <RadioButton Tag="Medium" Click="OnChangeSize">Medium</RadioButton>
+        <RadioButton Tag="Large" Click="OnChangeSize">Large</RadioButton>
 
     </WrapPanel>
    

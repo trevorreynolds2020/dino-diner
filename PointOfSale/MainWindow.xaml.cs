@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +26,25 @@ namespace PointOfSale
         {
             InitializeComponent();
             Order order = new Order();
-//            order.Items.Add(new Sodasaurus());
             DataContext = order;
+        }
+        private void PassDataContent()
+        {
+            if (OrderUI.Content is Page page)
+            {
+                page.DataContext = OrderUI.DataContext;
+            }
+
+        }
+
+        private void OnLoadCompleted(object sender, NavigationEventArgs args)
+        {
+            PassDataContent();
+        }
+
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            PassDataContent();
         }
     }
 }

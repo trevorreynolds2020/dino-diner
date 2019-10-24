@@ -44,6 +44,7 @@ namespace DinoDiner.Menu
                 }
                 INotifyIfPropertyChanged("Price");
                 INotifyIfPropertyChanged("Calories");
+                INotifyIfPropertyChanged("Description");
             }
             get { return size; }
         }
@@ -55,6 +56,7 @@ namespace DinoDiner.Menu
             this.RoomForCream = true;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
+            INotifyIfPropertyChanged("Description");
         }
         
         /// <summary>

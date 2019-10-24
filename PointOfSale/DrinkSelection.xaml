@@ -47,9 +47,9 @@
                 Water
             </TextBlock>
         </Button>
-        <RadioButton>Small</RadioButton>
-        <RadioButton>Medium</RadioButton>
-        <RadioButton>Large</RadioButton>
+        <RadioButton Tag="Small" Click="OnChangeSize">Small</RadioButton>
+        <RadioButton Tag="Medium" Click="OnChangeSize">Medium</RadioButton>
+        <RadioButton Tag="Large" Click="OnChangeSize">Large</RadioButton>
     </WrapPanel>
     
 </Page>

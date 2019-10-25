@@ -15,7 +15,7 @@
                 <Setter Property="Height" Value="100"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>
+        <Button Click="SelectBrontowurst">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-01.png"/>
             </Button.Background>
@@ -23,7 +23,7 @@
                 Brontowurst 
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectDinoNuggets">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-02.png"/>
             </Button.Background>
@@ -31,7 +31,7 @@
                 Dino Nuggets 
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectPrehistoricPBJ">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-03.png"/>
             </Button.Background>
@@ -39,7 +39,7 @@
                 Prehistoric PB&amp;J 
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectPterodactylWings">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-04.png"/>
             </Button.Background>
@@ -47,7 +47,7 @@
                 Pterodactyl Wings
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectTRexKingBurger">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-05.png"/>
             </Button.Background>
@@ -55,7 +55,7 @@
                 T-Rex King Burger 
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectPrehistoricPBJ">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-06.png"/>
             </Button.Background>
@@ -63,7 +63,7 @@
                 Prehistoric PB&amp;J 
             </TextBlock>
         </Button>
-        <Button>
+        <Button Click="SelectVelociWrap">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-07.png"/>
             </Button.Background>

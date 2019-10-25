@@ -22,12 +22,18 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        private Drink drink;
         public DrinkSelection()
         {
             InitializeComponent();
         }
 
-        private Drink drink;
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            this.drink = drink;
+        }
+
 
         Button FlavorButton = new Button();
         Button LemonButton = new Button();
@@ -37,7 +43,7 @@ namespace PointOfSale
         Button AddIce = new Button();
         Button Decaf = new Button();
 
-        
+
         /// <summary>
         /// Handles drink click event
         /// </summary>
@@ -149,6 +155,15 @@ namespace PointOfSale
             if (sender is FrameworkElement element)
             {
                 drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+            }
+        }
+
+        private void AddIceClick(object sender, RoutedEventArgs args)
+        {
+            drink.Ice = true;
+            if (DataContext is Order order)
+            {
+                order.Add(drink);
             }
         }
 

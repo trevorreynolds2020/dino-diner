@@ -26,6 +26,11 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            this.side = side;
+        }
         /// <summary>
         /// Adds side to the list
         /// </summary>
@@ -36,7 +41,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Fryceritops();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
         /// <summary>
@@ -49,7 +54,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new MeteorMacAndCheese();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
         /// <summary>
@@ -62,7 +67,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new MezzorellaSticks();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
         /// <summary>
@@ -75,7 +80,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Triceritots();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
         /// <summary>
@@ -85,6 +90,10 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnChangeSize(object sender, RoutedEventArgs args)
         {
+            if(side == null)
+            {
+                return;
+            }
             if (sender is FrameworkElement element)
             {
                 side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());

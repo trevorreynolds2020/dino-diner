@@ -6,6 +6,7 @@ namespace DinoDiner.Menu
 {
     public class Tyrannotea:Drink, INotifyPropertyChanged, IOrderItem
     {
+
         /// <summary>
         /// Indicate whether or not to make tea sweet
         /// </summary>

@@ -74,8 +74,8 @@ namespace DinoDiner.Menu
         /// </summary>
         public Sodasaurus()
         {
-            Price = 0;
-            Calories = 0;
+            Price = 1.5;
+            Calories = 112;
             Ice = true;
             ingredients.Add("Water");
             ingredients.Add("Natural Flavors");

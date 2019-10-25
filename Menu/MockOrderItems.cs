@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
-    public class MockOrderItems : IOrderItem
+    public class MockOrderItems : IOrderItem , INotifyPropertyChanged
     {
         /// <summary>
         /// Get/set description of order item
@@ -18,6 +18,9 @@ namespace DinoDiner.Menu
         /// Get/set special of order item
         /// </summary>
         public string[] Special { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// First test order item
         /// </summary>

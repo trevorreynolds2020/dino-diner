@@ -26,6 +26,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public class MockOrderItems1 : IOrderItem
         {
+            public event PropertyChangedEventHandler PropertyChanged;
             /// <summary>
             /// Get/set description of order item
             /// </summary>
@@ -51,6 +52,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public class MockOrderItems2 : IOrderItem
         {
+            public event PropertyChangedEventHandler PropertyChanged;
             /// <summary>
             /// Get/set description of order item
             /// </summary>

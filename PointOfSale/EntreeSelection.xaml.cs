@@ -65,8 +65,9 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new PrehistoricPBJ();
+                PrehistoricPBJ entree = new PrehistoricPBJ(); // Note: explicitly state type when passing as a parameter to constructor
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(entree));
             }
         }
         /// <summary>
@@ -121,5 +122,7 @@ namespace PointOfSale
                 order.Add(entree);
             }
         }
+
+
     }
 }

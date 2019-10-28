@@ -22,6 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Constructor - always creates a new order object and assigns it to DataContext
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +33,9 @@ namespace PointOfSale
             OrderUI.Navigate(new MenuCategorySelection());
             OrderInterface.NavigationService = OrderUI.NavigationService;
         }
+        /// <summary>
+        /// When the data is passed
+        /// </summary>
         private void PassDataContent()
         {
             if (OrderUI.Content is Page page)
@@ -38,15 +44,32 @@ namespace PointOfSale
             }
 
         }
-
+        /// <summary>
+        /// When the screen is successfully loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
             PassDataContent();
         }
-
+        /// <summary>
+        /// When the data is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             PassDataContent();
+        }
+        /// <summary>
+        /// Returns to category selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnReturnToCategorySelection(object sender, RoutedEventArgs args)
+        {
+            OrderInterface.NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

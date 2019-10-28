@@ -157,7 +157,11 @@ namespace PointOfSale
                 drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
             }
         }
-
+        /// <summary>
+        /// Adds ice to the drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void AddIceClick(object sender, RoutedEventArgs args)
         {
             drink.Ice = true;

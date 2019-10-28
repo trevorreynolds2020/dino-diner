@@ -16,7 +16,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public SodasaurusFlavor Flavor {
             get { return flavor; } 
-            set { flavor = value; }
+            set { flavor = value; INotifyIfPropertyChanged("Description"); }
         }
         /// <summary>
         /// small, medium, or large

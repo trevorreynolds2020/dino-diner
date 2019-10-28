@@ -24,6 +24,7 @@
                  ItemsSource="{Binding Path=Items}"
                  Name="OrderItems"
                  SelectionChanged="OnSelectionChanged"
+                 MouseDoubleClick="OnSelectionChanged"
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>

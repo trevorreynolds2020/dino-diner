@@ -17,7 +17,7 @@
             </Style>
         </WrapPanel.Resources>
         <Button Click="CherryClick">Cherry</Button>
-        <Button Click="ChocolateClick">Chocolate</Button>
+        <Button Tag ="Chocolate" Click="OnChangeFlavor">Chocolate</Button>
         <Button>Cola</Button>
         <Button>Lime</Button>
         <Button>Orange</Button>

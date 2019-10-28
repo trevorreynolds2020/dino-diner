@@ -39,7 +39,7 @@ namespace PointOfSale
             }
         }
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
+        private void OnSelectionChanged(object sender, EventArgs args)
         {
             if(OrderItems.SelectedItem is Side side)
             {

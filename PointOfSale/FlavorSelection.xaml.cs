@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
+using DDFlavor = DinoDiner.Menu.SodasaurusFlavor;
 
 namespace PointOfSale
 {
@@ -22,9 +23,18 @@ namespace PointOfSale
     public partial class FlavorSelection : Page
     {
         private Sodasaurus soda;
+        private SodasaurusFlavor flavor;
         public FlavorSelection()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Constructor where you pass a Sodasaurus
+        /// </summary>
+        /// <param name="soda"></param>
+        public FlavorSelection(Sodasaurus soda)
+        {
+            this.soda = soda;
         }
         /// <summary>
         /// Changes the flavor of the sodasaurus
@@ -48,6 +58,18 @@ namespace PointOfSale
             if (DataContext is Sodasaurus s)
             {
                 s.Flavor = SodasaurusFlavor.Chocolate;
+            }
+        }
+        /// <summary>
+        /// Changes size of element object
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnChangeFlavor(object sender, RoutedEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                soda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
             }
         }
     }

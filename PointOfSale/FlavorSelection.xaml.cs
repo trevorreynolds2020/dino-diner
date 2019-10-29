@@ -34,6 +34,7 @@ namespace PointOfSale
         /// <param name="soda"></param>
         public FlavorSelection(Sodasaurus soda)
         {
+            InitializeComponent();
             this.soda = soda;
         }
         /// <summary>
@@ -43,10 +44,11 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void CherryClick(object sender,RoutedEventArgs args)
         {
-            if(DataContext is Sodasaurus s)
+            if(soda is Sodasaurus s)
             {
                 s.Flavor = SodasaurusFlavor.Cherry;
             }
+            NavigationService.Navigate(new DrinkSelection());
         }
         /// <summary>
         /// Changes the flavor of the sodasaurus
@@ -55,22 +57,76 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void ChocolateClick(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Sodasaurus s)
+            if (soda is Sodasaurus s)
             {
                 s.Flavor = SodasaurusFlavor.Chocolate;
             }
+            NavigationService.Navigate(new DrinkSelection());
         }
         /// <summary>
-        /// Changes size of element object
+        /// Changes the flavor of the sodasaurus
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnChangeFlavor(object sender, RoutedEventArgs args)
+        private void VanillaClick(object sender, RoutedEventArgs args)
         {
-            if (sender is FrameworkElement element)
+            if (soda is Sodasaurus s)
             {
-                soda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                s.Flavor = SodasaurusFlavor.Vanilla;
             }
+            NavigationService.Navigate(new DrinkSelection());
+        }
+        /// <summary>
+        /// Changes the flavor of the sodasaurus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void LimeClick(object sender, RoutedEventArgs args)
+        {
+            if (soda is Sodasaurus s)
+            {
+                s.Flavor = SodasaurusFlavor.Lime;
+            }
+            NavigationService.Navigate(new DrinkSelection());
+        }
+        /// <summary>
+        /// Changes the flavor of the sodasaurus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OrangeClick(object sender, RoutedEventArgs args)
+        {
+            if (soda is Sodasaurus s)
+            {
+                s.Flavor = SodasaurusFlavor.Orange;
+            }
+            NavigationService.Navigate(new DrinkSelection());
+        }
+        /// <summary>
+        /// Changes the flavor of the sodasaurus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void ColaClick(object sender, RoutedEventArgs args)
+        {
+            if (soda is Sodasaurus s)
+            {
+                s.Flavor = SodasaurusFlavor.Cola;
+            }
+            NavigationService.Navigate(new DrinkSelection());
+        }
+        /// <summary>
+        /// Changes the flavor of the sodasaurus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void RootBeerClick(object sender, RoutedEventArgs args)
+        {
+            if (soda is Sodasaurus s)
+            {
+                s.Flavor = SodasaurusFlavor.RootBeer;
+            }
+            NavigationService.Navigate(new DrinkSelection());
         }
     }
 }

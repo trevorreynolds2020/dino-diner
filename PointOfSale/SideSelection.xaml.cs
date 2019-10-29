@@ -21,11 +21,18 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        /// <summary>
+        /// Private backing variable for the side chosen
+        /// </summary>
         private Side side;
         public SideSelection()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Constructs a Side Selection page by passing side object - that way we can edit this specific object
+        /// </summary>
+        /// <param name="side"></param>
         public SideSelection(Side side)
         {
             InitializeComponent();

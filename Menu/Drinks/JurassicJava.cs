@@ -67,6 +67,7 @@ namespace DinoDiner.Menu
             this.Ice = true;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
+            INotifyIfPropertyChanged("Description");
         }
         /// <summary>
         /// Changes coffee to decaf
@@ -74,6 +75,9 @@ namespace DinoDiner.Menu
         public void DecafJava()
         {
             this.Decaf = true;
+            INotifyIfPropertyChanged("Ingredients");
+            INotifyIfPropertyChanged("Special");
+            INotifyIfPropertyChanged("Description");
         }
         /// <summary>
         /// returns a description

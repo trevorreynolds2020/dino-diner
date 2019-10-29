@@ -16,13 +16,13 @@
                 <Setter Property="Height" Value="100"/>
             </Style>
         </WrapPanel.Resources>
-        <Button Click="CherryClick">Cherry</Button>
-        <Button Tag ="Chocolate" Click="OnChangeFlavor">Chocolate</Button>
-        <Button>Cola</Button>
-        <Button>Lime</Button>
-        <Button>Orange</Button>
-        <Button>Root Beer</Button>
-        <Button>Vanilla</Button>
+        <Button Tag="Cherry" Click="CherryClick">Cherry</Button>
+        <Button Tag ="Chocolate" Click="ChocolateClick">Chocolate</Button>
+        <Button Click="ColaClick">Cola</Button>
+        <Button Click="LimeClick">Lime</Button>
+        <Button Click="OrangeClick">Orange</Button>
+        <Button Click="RootBeerClick">Root Beer</Button>
+        <Button Click="VanillaClick">Vanilla</Button>
 
     </WrapPanel>
 

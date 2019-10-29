@@ -27,7 +27,10 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Constructor with the specific drink being selected
+        /// </summary>
+        /// <param name="drink"></param>
         public DrinkSelection(Drink drink)
         {
             InitializeComponent();
@@ -62,9 +65,15 @@ namespace PointOfSale
             }
 
         }
+        /// <summary>
+        /// Navigates to the flavor select screen when you choose flavor on soda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void FlavorScreen(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            Sodasaurus s = (Sodasaurus) drink;
+            NavigationService.Navigate(new FlavorSelection(s));
         }
         /// <summary>
         /// Handles drink click event
@@ -86,6 +95,9 @@ namespace PointOfSale
                 drink = new JurassicJava();
                 order.Add(drink);
             }
+            Decaf.Click += new RoutedEventHandler(OnDecafClick);
+            AddIce.Click += new RoutedEventHandler(OnSelectAddIce);
+            RoomForCream.Click += new RoutedEventHandler(OnRoomForCreamClick);
 
         }
         /// <summary>
@@ -106,6 +118,8 @@ namespace PointOfSale
                 drink = new Water();
                 order.Add(drink);
             }
+            AddIce.Click += new RoutedEventHandler(AddIceToWaterButtonClick);
+            LemonButton.Click += new RoutedEventHandler(AddLemonToWaterButtonClick);
         }
         /// <summary>
         /// Handles drink click event
@@ -126,7 +140,9 @@ namespace PointOfSale
                 drink = new Tyrannotea();
                 order.Add(drink);
             }
-            //.Click += new RoutedEventHandler();
+            LemonButton.Click += new RoutedEventHandler(AddLemonToTyrannoteaButtonClick);
+            AddIce.Click += new RoutedEventHandler(AddIceToTyrannoteaButtonClick);
+            SweetnerButton.Click += new RoutedEventHandler(AddSweetnerToTyrannoteaButtonClick);
         }
         void AddSweetner(object sender, RoutedEventArgs args)
         {
@@ -157,20 +173,102 @@ namespace PointOfSale
                 drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
             }
         }
+        
         /// <summary>
-        /// Adds ice to the drink
+        /// Adds ice when the button is pressed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void AddIceClick(object sender, RoutedEventArgs args)
+        private void OnSelectAddIce(object sender, RoutedEventArgs args)
         {
-            drink.Ice = true;
-            if (DataContext is Order order)
+            if (drink is JurassicJava java)
             {
-                order.Add(drink);
+                java.AddIce();
             }
         }
-
-
+        /// <summary>
+        /// Makes the coffee decaf when the button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnDecafClick(object sender, RoutedEventArgs args)
+        {
+            if (drink is JurassicJava java)
+            {
+                java.DecafJava();
+            }
+        }
+        /// <summary>
+        /// Leaves room for cream on button click - event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnRoomForCreamClick(object sender, RoutedEventArgs args)
+        {
+            if (drink is JurassicJava java)
+            {
+                java.LeaveRoomForCream();
+            }
+        }
+        /// <summary>
+        /// Adds ice to water
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void AddIceToWaterButtonClick(object sender, RoutedEventArgs args)
+        {
+            if (drink is Water water)
+            {
+                water.Ice = true;
+            }
+        }
+        /// <summary>
+        /// Add lemon to water
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void AddLemonToWaterButtonClick(object sender, RoutedEventArgs args)
+        {
+            if (drink is Water water)
+            {
+                water.AddLemon();
+            }
+        }
+        /// <summary>
+        /// Adds ice to tyrannotea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void AddIceToTyrannoteaButtonClick(object sender, RoutedEventArgs args)
+        {
+            if (drink is Tyrannotea tea)
+            {
+                tea.Ice = true;
+            }
+        }
+        /// <summary>
+        /// Add lemon to tyrannotea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void AddLemonToTyrannoteaButtonClick(object sender, RoutedEventArgs args)
+        {
+            if (drink is Tyrannotea tea)
+            {
+                tea.AddLemon();
+            }
+        }
+        /// <summary>
+        /// Add sweetner to tyrannotea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void AddSweetnerToTyrannoteaButtonClick(object sender, RoutedEventArgs args)
+        {
+            if (drink is Tyrannotea tea)
+            {
+                tea.AddSweetner();
+            }
+        }
     }
 }

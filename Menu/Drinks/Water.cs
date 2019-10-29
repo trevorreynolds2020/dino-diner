@@ -75,6 +75,7 @@ namespace DinoDiner.Menu
             Lemon = true;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
+            INotifyIfPropertyChanged("Description");
         }
         /// <summary>
         /// Returns a string "water"

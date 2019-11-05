@@ -31,7 +31,7 @@
                 Dino Nuggets Combo
             </TextBlock>
         </Button>
-        <Button Click="SelectCombo">
+        <Button Click="SelectPBJ">
             <Button.Background>
                 <ImageBrush ImageSource = "Assets/DinoDiner-03.png"/>
             </Button.Background>

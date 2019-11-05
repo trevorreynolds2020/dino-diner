@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
@@ -23,6 +23,15 @@ namespace PointOfSale
         public ComboSelection()
         {
             InitializeComponent();
+        }
+        void SelectPBJ(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                PrehistoricPBJ entree = new PrehistoricPBJ(); // Note: explicitly state type when passing as a parameter to constructor
+                order.Add(entree);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(entree, true));
+            }
         }
         void SelectCombo(object sender, RoutedEventArgs args)
         {

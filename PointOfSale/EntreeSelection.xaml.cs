@@ -21,6 +21,7 @@ namespace PointOfSale
     public partial class EntreeSelection : Page
     {
         private Entree entree;
+        private bool combo;
         public EntreeSelection()
         {
             InitializeComponent();
@@ -29,6 +30,12 @@ namespace PointOfSale
         {
             InitializeComponent();
             this.entree = entree;
+        }
+        public EntreeSelection(Entree entree, bool combo)
+        {
+            InitializeComponent();
+            this.entree = entree;
+            this.combo = combo;
         }
         /// <summary>
         /// Adds entree to the list
@@ -65,11 +72,20 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectPrehistoricPBJ(object sender, RoutedEventArgs e)
         {
+            if(combo)
+            {
+                if (DataContext is Order)
+                {
+                    PrehistoricPBJ pbj = new PrehistoricPBJ();
+                    //order.Add(pbj);
+                    NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, true));
+                }
+            }
             if (DataContext is Order order)
             {
-                PrehistoricPBJ entree = new PrehistoricPBJ(); // Note: explicitly state type when passing as a parameter to constructor
-                order.Add(entree);
-                NavigationService.Navigate(new CustomizePrehistoricPBJ(entree));
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, false));
             }
         }
         /// <summary>

@@ -24,13 +24,24 @@ namespace PointOfSale
         /// Private backing field for pbj object
         /// </summary>
         PrehistoricPBJ pbj; // Note: default for C# is private therefore this is private
+        /// <summary>
+        /// Determines if this entree apart of a combo
+        /// </summary>
         private bool combo;
         public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, bool combo)
         {
             InitializeComponent();
             this.pbj = pbj;
             this.combo = combo;
-
+            //Creates a combo and add it to the menu
+            if(combo)
+            {
+                CretaceousCombo PBJCombo = new CretaceousCombo(pbj);
+                if (DataContext is Order order)
+                {
+                    order.Add(PBJCombo);
+                }
+            }
         }
         /// <summary>
         /// Holds the peanut butter
@@ -57,7 +68,14 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.GoBack();
+            if(combo)
+            {
+                NavigationService.Navigate(new CustomizeComboSelection());
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

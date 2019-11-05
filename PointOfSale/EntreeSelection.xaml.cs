@@ -39,10 +39,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new Brontowurst();
+                Brontowurst entree = new Brontowurst();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeBrontowurst(entree));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
         /// <summary>
         /// Adds entree to the list
@@ -53,10 +53,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new DinoNuggets();
+                DinoNuggets entree = new DinoNuggets();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeDinoNuggets(entree));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
         /// <summary>
         /// Adds entree to the list
@@ -95,10 +95,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new SteakosaurusBurger();
+                SteakosaurusBurger entree = new SteakosaurusBurger();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(entree));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            
         }
         /// <summary>
         /// Adds entree to the list
@@ -109,10 +110,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new TRexKingBurger();
+                TRexKingBurger entree = new TRexKingBurger();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeTRexKingBurger(entree));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            
         }
         /// <summary>
         /// Adds entree to the list
@@ -123,10 +125,11 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new VelociWrap();
+                VelociWrap entree = new VelociWrap();
                 order.Add(entree);
+                NavigationService.Navigate(new CustomizeVelociWrap(entree));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            
         }
 
 

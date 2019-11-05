@@ -13,42 +13,49 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
+
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeBrontowurst.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeBrontowurst : Page
     {
         /// <summary>
-        /// Private backing field for pbj object
+        /// Private backing field for brontowurst object
         /// </summary>
-        PrehistoricPBJ pbj; // Note: default for C# is private therefore this is private
-        private bool combo;
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, bool combo)
+        Brontowurst brontowurst; 
+        public CustomizeBrontowurst(Brontowurst brontowurst)
         {
             InitializeComponent();
-            this.pbj = pbj;
-            this.combo = combo;
-
+            this.brontowurst = brontowurst;
         }
         /// <summary>
-        /// Holds the peanut butter
+        /// Holds the bun
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnHoldBun(object sender, RoutedEventArgs args)
         {
-            this.pbj.HoldPeanutButter();
+            this.brontowurst.HoldBun();
         }
         /// <summary>
-        /// Holds the jelly
+        /// Holds the peppers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void OnHoldPeppers(object sender, RoutedEventArgs args)
         {
-            this.pbj.HoldJelly();
+            this.brontowurst.HoldPeppers();
+        }
+        /// <summary>
+        /// Holds the onion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnHoldOnion(object sender, RoutedEventArgs args)
+        {
+            this.brontowurst.HoldOnion();
         }
         /// <summary>
         /// When done is clicked

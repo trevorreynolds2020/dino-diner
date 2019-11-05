@@ -16,39 +16,45 @@ using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeVelociWrap.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeVelociWrap : Page
     {
         /// <summary>
-        /// Private backing field for pbj object
+        /// Private backing field for wrap object
         /// </summary>
-        PrehistoricPBJ pbj; // Note: default for C# is private therefore this is private
-        private bool combo;
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, bool combo)
+        VelociWrap wrap;
+        public CustomizeVelociWrap(VelociWrap wrap)
         {
             InitializeComponent();
-            this.pbj = pbj;
-            this.combo = combo;
-
+            this.wrap = wrap;
         }
         /// <summary>
-        /// Holds the peanut butter
+        /// Holds the dressing
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnHoldDressing(object sender, RoutedEventArgs args)
         {
-            this.pbj.HoldPeanutButter();
+            this.wrap.HoldDressing();
         }
         /// <summary>
-        /// Holds the jelly
+        /// Holds the cheese
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
+        private void OnHoldCheese(object sender, RoutedEventArgs args)
         {
-            this.pbj.HoldJelly();
+            this.wrap.HoldCheese();
+        }
+        /// <summary>
+        /// Holds the lettuce
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnHoldLettuce(object sender, RoutedEventArgs args)
+        {
+            this.wrap.HoldLettuce();
         }
         /// <summary>
         /// When done is clicked

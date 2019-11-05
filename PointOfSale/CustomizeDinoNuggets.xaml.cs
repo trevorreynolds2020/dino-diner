@@ -13,42 +13,31 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
+
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizePrehistoricPBJ.xaml
+    /// Interaction logic for CustomizeDinoNuggets.xaml
     /// </summary>
-    public partial class CustomizePrehistoricPBJ : Page
+    public partial class CustomizeDinoNuggets : Page
     {
         /// <summary>
-        /// Private backing field for pbj object
+        /// Private backing field for nuggets object
         /// </summary>
-        PrehistoricPBJ pbj; // Note: default for C# is private therefore this is private
-        private bool combo;
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, bool combo)
+        DinoNuggets nugs;
+        public CustomizeDinoNuggets(DinoNuggets nugs)
         {
             InitializeComponent();
-            this.pbj = pbj;
-            this.combo = combo;
-
+            this.nugs = nugs;
         }
         /// <summary>
-        /// Holds the peanut butter
+        /// Adds nugget
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
+        private void OnAddNugget(object sender, RoutedEventArgs args)
         {
-            this.pbj.HoldPeanutButter();
-        }
-        /// <summary>
-        /// Holds the jelly
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnHoldJelly(object sender, RoutedEventArgs args)
-        {
-            this.pbj.HoldJelly();
+            this.nugs.AddNugget();
         }
         /// <summary>
         /// When done is clicked

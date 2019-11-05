@@ -6,6 +6,7 @@ namespace DinoDiner.Menu
 {
     public interface IOrderItem : INotifyPropertyChanged
     {
+       
         /// <summary>
         /// Stores price
         /// </summary>

@@ -42,5 +42,10 @@ namespace PointOfSale
             InitializeComponent();
             this.combo = combo;
         }
+        public CustomizeComboSelection()
+        {
+            InitializeComponent();
+       
+        }
     }
 }

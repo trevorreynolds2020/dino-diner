@@ -67,8 +67,16 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Fryceritops();
-                combo.Side = side;
-                order.Add(combo);
+                if(isCombo)
+                {
+                    combo.Side = side;
+                }
+                else
+                {
+                    order.Add(side);
+                }
+               
+                
             }
         }
         /// <summary>

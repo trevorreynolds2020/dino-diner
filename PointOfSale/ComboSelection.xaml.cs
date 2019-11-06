@@ -28,9 +28,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                PrehistoricPBJ entree = new PrehistoricPBJ(); // Note: explicitly state type when passing as a parameter to constructor
-                order.Add(entree);
-                NavigationService.Navigate(new CustomizePrehistoricPBJ(entree, true));
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(true));
             }
         }
         void SelectCombo(object sender, RoutedEventArgs args)

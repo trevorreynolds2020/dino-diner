@@ -34,6 +34,10 @@ namespace DinoDiner.Menu
             protected set
             {
                 entree = value;
+                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args) =>
+                {
+                    INotifyIfPropertyChanged(args.PropertyName);
+                };
             }
         }
         /// <summary>

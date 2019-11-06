@@ -27,19 +27,29 @@ namespace PointOfSale
         /// <summary>
         /// Determines if this entree apart of a combo
         /// </summary>
-        private bool combo;
-        public CustomizePrehistoricPBJ(PrehistoricPBJ pbj, bool combo)
+        private bool isCombo;
+        private CretaceousCombo PBJCombo;
+        public CustomizePrehistoricPBJ(bool isCombo)
         {
             InitializeComponent();
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
             this.pbj = pbj;
-            this.combo = combo;
+            this.isCombo = isCombo;
             //Creates a combo and add it to the menu
-            if(combo)
+            if(isCombo)
             {
                 CretaceousCombo PBJCombo = new CretaceousCombo(pbj);
+                this.PBJCombo = PBJCombo;
                 if (DataContext is Order order)
                 {
-                    order.Add(PBJCombo);
+                    order.Add(PBJCombo.Entree);  
+                }
+            }
+            else
+            {
+                if (DataContext is Order order)
+                {
+                    order.Add(pbj);
                 }
             }
         }
@@ -50,7 +60,13 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
         {
-            this.pbj.HoldPeanutButter();
+            pbj.HoldPeanutButter();
+            Console.WriteLine("hold peanut");
+            string[] bleh = pbj.Special;
+            for(int i = 0; i < bleh.Length; i++)
+            {
+                Console.WriteLine(bleh[i]);
+            }
         }
         /// <summary>
         /// Holds the jelly
@@ -59,7 +75,8 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnHoldJelly(object sender, RoutedEventArgs args)
         {
-            this.pbj.HoldJelly();
+            pbj.HoldJelly();
+            Console.WriteLine("hold jelly");
         }
         /// <summary>
         /// When done is clicked
@@ -68,9 +85,9 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            if(combo)
+            if(isCombo)
             {
-                NavigationService.Navigate(new CustomizeComboSelection(combo));
+                NavigationService.Navigate(new CustomizeComboSelection(PBJCombo));
             }
             else
             {

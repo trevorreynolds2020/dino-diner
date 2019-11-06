@@ -78,14 +78,14 @@ namespace PointOfSale
                 {
                     PrehistoricPBJ pbj = new PrehistoricPBJ();
                     //order.Add(pbj);
-                    NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, true));
+                    NavigationService.Navigate(new CustomizePrehistoricPBJ(true));
                 }
             }
             if (DataContext is Order order)
             {
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
                 order.Add(pbj);
-                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, false));
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(false));
             }
         }
         /// <summary>

@@ -70,7 +70,7 @@ namespace PointOfSale
         {
             if(combo)
             {
-                NavigationService.Navigate(new CustomizeComboSelection());
+                NavigationService.Navigate(new CustomizeComboSelection(combo));
             }
             else
             {

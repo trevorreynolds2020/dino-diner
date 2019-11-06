@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
@@ -20,17 +20,27 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeComboSelection : Page
     {
+        /// <summary>
+        /// Holds the current combo object
+        /// </summary>
+        private CretaceousCombo combo;
         void SelectSide(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new SideSelection());
+            NavigationService.Navigate(new SideSelection(combo, true)); // yes, this is a combo TRUE
         }
         void SelectDrink(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new DrinkSelection());
         }
-        public CustomizeComboSelection()
+        
+        /// <summary>
+        /// Passes in current combo object
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizeComboSelection(CretaceousCombo combo)
         {
             InitializeComponent();
+            this.combo = combo;
         }
     }
 }

@@ -25,9 +25,28 @@ namespace PointOfSale
         /// Private backing variable for the side chosen
         /// </summary>
         private Side side;
+        /// <summary>
+        /// Checks whether this is a side on a combo
+        /// </summary>
+        private bool isCombo;
+        /// <summary>
+        /// Backing variable for combo
+        /// </summary>
+        CretaceousCombo combo;
         public SideSelection()
         {
             InitializeComponent();
+        }
+        /// <summary>
+        /// Checks for combo selection
+        /// </summary>
+        /// <param name="combo"></param>
+        /// <param name="isCombo"></param>
+        public SideSelection(CretaceousCombo combo, bool isCombo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.isCombo = isCombo;
         }
         /// <summary>
         /// Constructs a Side Selection page by passing side object - that way we can edit this specific object
@@ -48,7 +67,8 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Fryceritops();
-                order.Add(side);
+                combo.Side = side;
+                order.Add(combo);
             }
         }
         /// <summary>

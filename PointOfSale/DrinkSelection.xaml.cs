@@ -22,8 +22,17 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        /// <summary>
+        /// Single drink backing variable
+        /// </summary>
         private Drink drink;
+        /// <summary>
+        /// Combo backing variable
+        /// </summary>
         private CretaceousCombo combo;
+        /// <summary>
+        /// is it a combo?
+        /// </summary>
         private bool isCombo;
         public DrinkSelection()
         {
@@ -72,8 +81,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         void FlavorScreen(object sender, RoutedEventArgs args)
         {
-            Sodasaurus s = (Sodasaurus) drink;
-            NavigationService.Navigate(new FlavorSelection(s));
+            if(!isCombo)
+            {
+                Sodasaurus s = (Sodasaurus)drink;
+                NavigationService.Navigate(new FlavorSelection(s));
+            }
+            else
+            {
+                if (combo.Drink is Sodasaurus soda)
+                {
+                    NavigationService.Navigate(new FlavorSelection(soda));
+
+                }
+            }
         }
         
         /// <summary>
@@ -111,7 +131,7 @@ namespace PointOfSale
             // adds sweetner
         }
         /// <summary>
-        /// Logic for jurassic button
+        /// Logic for the jurassic button - adds the right property change buttons
         /// </summary>
         void JurassicButtonLogic()
         {
@@ -122,7 +142,6 @@ namespace PointOfSale
             SelectDrink.Children.Add(RoomForCream);
             SelectDrink.Children.Add(AddIce);
             SelectDrink.Children.Add(Decaf);
-            //.Click += new RoutedEventHandler();
             // checks it's in a combo 
             if (DataContext is Order order)
             {
@@ -140,7 +159,9 @@ namespace PointOfSale
             AddIce.Click += new RoutedEventHandler(OnSelectAddIce);
             RoomForCream.Click += new RoutedEventHandler(OnRoomForCreamClick);
         }
-        
+        /// <summary>
+        /// Logic for the water button - adds the right property change buttons
+        /// </summary>
         void WaterButtonLogic()
         {
             RemoveAllButtons();
@@ -163,6 +184,9 @@ namespace PointOfSale
             AddIce.Click += new RoutedEventHandler(AddIceToWaterButtonClick);
             LemonButton.Click += new RoutedEventHandler(AddLemonToWaterButtonClick);
         }
+        /// <summary>
+        /// Logic for the tyrannotea button - adds the right property change buttons
+        /// </summary>
         void TyrannoteaButtonLogic()
         {
             RemoveAllButtons();
@@ -188,6 +212,9 @@ namespace PointOfSale
             AddIce.Click += new RoutedEventHandler(AddIceToTyrannoteaButtonClick);
             SweetnerButton.Click += new RoutedEventHandler(AddSweetnerToTyrannoteaButtonClick);
         }
+        /// <summary>
+        /// Logic for the sodasurus button - adds the right property change buttons
+        /// </summary>
         void SodasurusButtonLogic()
         {
             RemoveAllButtons();
@@ -250,9 +277,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnSelectAddIce(object sender, RoutedEventArgs args)
         {
-            if (drink is JurassicJava java)
+            if(!isCombo)
             {
-                java.AddIce();
+                if (drink is JurassicJava java)
+                {
+                    java.AddIce();
+                }
+            }
+            else
+            {
+                if (combo.Drink is JurassicJava java)
+                {
+                    java.AddIce();
+                }
             }
         }
         /// <summary>
@@ -307,9 +344,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void AddIceToWaterButtonClick(object sender, RoutedEventArgs args)
         {
-            if (drink is Water water)
+            if (!isCombo)
             {
-                water.Ice = true;
+                if (drink is Water water)
+                {
+                    water.Ice = true;
+                }
+            }
+            else
+            {
+                if (combo.Drink is Water water)
+                {
+                    water.Ice = true;
+                }
             }
         }
         /// <summary>
@@ -319,9 +366,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void AddLemonToWaterButtonClick(object sender, RoutedEventArgs args)
         {
-            if (drink is Water water)
+            if(!isCombo)
             {
-                water.AddLemon();
+                if (drink is Water water)
+                {
+                    water.AddLemon();
+                }
+            }
+            else
+            {
+                if (combo.Drink is Water water)
+                {
+                    water.AddLemon();
+                }
             }
         }
         /// <summary>
@@ -331,9 +388,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void AddIceToTyrannoteaButtonClick(object sender, RoutedEventArgs args)
         {
-            if (drink is Tyrannotea tea)
+            if(!isCombo)
             {
-                tea.Ice = true;
+                if (drink is Tyrannotea tea)
+                {
+                    tea.Ice = true;
+                }
+            }
+            else
+            {
+                if (combo.Drink is Tyrannotea tea)
+                {
+                    tea.Ice = true;
+                }
             }
         }
         /// <summary>
@@ -343,9 +410,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void AddLemonToTyrannoteaButtonClick(object sender, RoutedEventArgs args)
         {
-            if (drink is Tyrannotea tea)
+            if(!isCombo)
             {
-                tea.AddLemon();
+                if (drink is Tyrannotea tea)
+                {
+                    tea.AddLemon();
+                }
+            }
+            else
+            {
+                if (combo.Drink is Tyrannotea tea)
+                {
+                    tea.AddLemon();
+                }
             }
         }
         /// <summary>
@@ -355,9 +432,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void AddSweetnerToTyrannoteaButtonClick(object sender, RoutedEventArgs args)
         {
-            if (drink is Tyrannotea tea)
+            if(!isCombo)
             {
-                tea.AddSweetner();
+                if (drink is Tyrannotea tea)
+                {
+                    tea.AddSweetner();
+                }
+            }
+            else
+            {
+                if (combo.Drink is Tyrannotea tea)
+                {
+                    tea.AddSweetner();
+                }
             }
         }
     }

@@ -62,6 +62,18 @@ namespace DinoDiner.Menu
             }
             get { return size; }
         }
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Tea");
+                if (Sweet) ingredients.Add("Cane Sugar");
+                if (Lemon) ingredients.Add("Lemon");
+                return ingredients;
+            }
+        }
         /// <summary>
         /// Constructs the tea 
         /// </summary>
@@ -69,18 +81,13 @@ namespace DinoDiner.Menu
         {
             Price = .99;
             Calories = 8;
-            Ice = true;
-            ingredients.Add("Water");
-            ingredients.Add("Tea");
-            ingredients.Add("Lemon");
-            ingredients.Add("Cane Sugar");
         }
         /// <summary>
         /// Adds lemon
         /// </summary>
         public void AddLemon()
         {
-            Lemon = true;
+            this.Lemon = true;
             INotifyIfPropertyChanged("Ingredients");
             INotifyIfPropertyChanged("Special");
         }
@@ -89,10 +96,11 @@ namespace DinoDiner.Menu
         /// </summary>
         public void AddSweetner()
         {
-            Sweet = true;
+            this.Sweet = true;
             Calories *= 2;
             INotifyIfPropertyChanged("Ingredients");
-            INotifyIfPropertyChanged("Special");
+            INotifyIfPropertyChanged("Calories");
+            INotifyIfPropertyChanged("Description");
         }
         
         /// <summary>
@@ -121,8 +129,18 @@ namespace DinoDiner.Menu
             {
                 List<string> special = new List<string>();
                 if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
         }
+        /// <summary>
+        /// Holds ice
+        /// </summary>
+        public override void HoldIce()
+        {
+            this.Ice = false;
+            INotifyIfPropertyChanged("Special");
+        }
+        
     }
 }

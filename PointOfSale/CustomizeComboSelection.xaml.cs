@@ -24,28 +24,41 @@ namespace PointOfSale
         /// Holds the current combo object
         /// </summary>
         private CretaceousCombo combo;
-        void SelectSide(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new SideSelection(combo, true)); // yes, this is a combo TRUE
-        }
-        void SelectDrink(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new DrinkSelection());
-        }
-        
-        /// <summary>
-        /// Passes in current combo object
-        /// </summary>
-        /// <param name="combo"></param>
         public CustomizeComboSelection(CretaceousCombo combo)
         {
             InitializeComponent();
             this.combo = combo;
         }
-        public CustomizeComboSelection()
+
+        void SelectEntree(object sender, RoutedEventArgs args)
         {
-            InitializeComponent();
-       
+            if (combo.Entree is PrehistoricPBJ pbj)
+            {
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, true));
+            }
+               
         }
+        /// <summary>
+        /// Checks the entree type from the selected combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        void SelectCombo(object sender, RoutedEventArgs args)
+        {
+            if (combo.Entree is PrehistoricPBJ pbj)
+            {
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj, true));
+            }
+        }
+        void SelectSide(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new SideSelection(combo)); // yes, this is a combo TRUE
+        }
+        void SelectDrink(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new DrinkSelection(combo));
+        }
+        
+       
     }
 }

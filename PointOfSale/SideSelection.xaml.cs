@@ -42,11 +42,11 @@ namespace PointOfSale
         /// </summary>
         /// <param name="combo"></param>
         /// <param name="isCombo"></param>
-        public SideSelection(CretaceousCombo combo, bool isCombo)
+        public SideSelection(CretaceousCombo combo)
         {
             InitializeComponent();
             this.combo = combo;
-            this.isCombo = isCombo;
+            this.isCombo = true;
         }
         /// <summary>
         /// Constructs a Side Selection page by passing side object - that way we can edit this specific object
@@ -64,19 +64,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectFryceritops(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
+            if(!isCombo)
             {
-                side = new Fryceritops();
-                if(isCombo)
+                if(DataContext is Order order)
                 {
-                    combo.Side = side;
-                }
-                else
-                {
+                    side = new Fryceritops();
                     order.Add(side);
                 }
-               
-                
+            }
+            else
+            {
+                combo.Side = new Fryceritops();
             }
         }
         /// <summary>
@@ -86,10 +84,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectMeteorMacAndCheese(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
+            if(!isCombo)
             {
-                side = new MeteorMacAndCheese();
-                order.Add(side);
+                if (DataContext is Order order)
+                {
+                    side = new MeteorMacAndCheese();
+                    order.Add(side);
+                }
+            }
+            else
+            {
+                combo.Side = new MeteorMacAndCheese();
             }
         }
         /// <summary>
@@ -99,10 +104,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectMezzorellaSticks(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
+            if(!isCombo)
             {
-                side = new MezzorellaSticks();
-                order.Add(side);
+                if (DataContext is Order order)
+                {
+                    side = new MezzorellaSticks();
+                    order.Add(side);
+                }
+            }
+            else
+            {
+                combo.Side = new MezzorellaSticks();
             }
         }
         /// <summary>
@@ -112,10 +124,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SelectTriceritots(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
+            if(!isCombo)
             {
-                side = new Triceritots();
-                order.Add(side);
+                if (DataContext is Order order)
+                {
+                    side = new Triceritots();
+                    order.Add(side);
+                }
+            }
+            else
+            {
+                combo.Side = new Triceritots();
             }
         }
         /// <summary>
@@ -125,13 +144,32 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnChangeSize(object sender, RoutedEventArgs args)
         {
-            if(side == null)
+            if(!isCombo)
             {
-                return;
+                if (side == null)
+                {
+                    return;
+                }
+                if (sender is FrameworkElement element)
+                {
+                    side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                }
             }
-            if (sender is FrameworkElement element)
+            else
             {
-                side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                if (sender is FrameworkElement element)
+                {
+                    if (combo.Side == null)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        combo.Side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                       // NavigationService.Navigate(new CustomizeComboSelection(combo));
+                    }
+
+                }
             }
         }
     }

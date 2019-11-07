@@ -23,18 +23,27 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
         private Drink drink;
+        private CretaceousCombo combo;
+        private bool isCombo;
         public DrinkSelection()
         {
             InitializeComponent();
+        }
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            this.drink = drink;
         }
         /// <summary>
         /// Constructor with the specific drink being selected
         /// </summary>
         /// <param name="drink"></param>
-        public DrinkSelection(Drink drink)
+        public DrinkSelection(CretaceousCombo combo)
         {
             InitializeComponent();
-            this.drink = drink;
+            this.combo = combo;
+            this.isCombo = true;
+            //this.drink = combo.Drink;
         }
 
 
@@ -46,7 +55,7 @@ namespace PointOfSale
         Button AddIce = new Button();
         Button Decaf = new Button();
 
-
+       
         /// <summary>
         /// Handles drink click event
         /// </summary>
@@ -54,16 +63,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         void SodasaurusClick(object sender, RoutedEventArgs args)
         {
-            RemoveAllButtons();
-            FlavorButton.Content = "Flavor";
-            SelectDrink.Children.Add(FlavorButton);
-            FlavorButton.Click += new RoutedEventHandler(FlavorScreen);
-            if (DataContext is Order order)
-            {
-                drink = new Sodasaurus();
-                order.Add(drink);
-            }
-
+            SodasurusButtonLogic();
         }
         /// <summary>
         /// Navigates to the flavor select screen when you choose flavor on soda
@@ -75,12 +75,45 @@ namespace PointOfSale
             Sodasaurus s = (Sodasaurus) drink;
             NavigationService.Navigate(new FlavorSelection(s));
         }
+        
         /// <summary>
         /// Handles drink click event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
         void JurassicJavaClick(object sender, RoutedEventArgs args)
+        {
+             JurassicButtonLogic();           
+        }
+        
+        /// <summary>
+        /// Handles drink click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        void WaterClick(object sender, RoutedEventArgs args)
+        {
+            WaterButtonLogic();
+        }
+
+        
+        /// <summary>
+        /// Handles drink click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        void TyrannoteaClick(object sender, RoutedEventArgs args)
+        {
+            TyrannoteaButtonLogic();
+        }
+        void AddSweetner(object sender, RoutedEventArgs args)
+        {
+            // adds sweetner
+        }
+        /// <summary>
+        /// Logic for jurassic button
+        /// </summary>
+        void JurassicButtonLogic()
         {
             RemoveAllButtons();
             RoomForCream.Content = "Leave Room";
@@ -90,43 +123,47 @@ namespace PointOfSale
             SelectDrink.Children.Add(AddIce);
             SelectDrink.Children.Add(Decaf);
             //.Click += new RoutedEventHandler();
+            // checks it's in a combo 
             if (DataContext is Order order)
             {
                 drink = new JurassicJava();
-                order.Add(drink);
+                if(!isCombo)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = drink;
+                }
             }
             Decaf.Click += new RoutedEventHandler(OnDecafClick);
             AddIce.Click += new RoutedEventHandler(OnSelectAddIce);
             RoomForCream.Click += new RoutedEventHandler(OnRoomForCreamClick);
-
         }
-        /// <summary>
-        /// Handles drink click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        void WaterClick(object sender, RoutedEventArgs args)
+        
+        void WaterButtonLogic()
         {
             RemoveAllButtons();
             AddIce.Content = "Add Ice";
             SelectDrink.Children.Add(AddIce);
             LemonButton.Content = "Add Lemon";
             SelectDrink.Children.Add(LemonButton);
-            //.Click += new RoutedEventHandler();
             if (DataContext is Order order)
             {
                 drink = new Water();
-                order.Add(drink);
+                if (!isCombo)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = drink;
+                }
             }
             AddIce.Click += new RoutedEventHandler(AddIceToWaterButtonClick);
             LemonButton.Click += new RoutedEventHandler(AddLemonToWaterButtonClick);
         }
-        /// <summary>
-        /// Handles drink click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        void TyrannoteaClick(object sender, RoutedEventArgs args)
+        void TyrannoteaButtonLogic()
         {
             RemoveAllButtons();
             SweetnerButton.Content = "Add Sweetner";
@@ -138,15 +175,37 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Tyrannotea();
-                order.Add(drink);
+                if (!isCombo)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = drink;
+                }
             }
             LemonButton.Click += new RoutedEventHandler(AddLemonToTyrannoteaButtonClick);
             AddIce.Click += new RoutedEventHandler(AddIceToTyrannoteaButtonClick);
             SweetnerButton.Click += new RoutedEventHandler(AddSweetnerToTyrannoteaButtonClick);
         }
-        void AddSweetner(object sender, RoutedEventArgs args)
+        void SodasurusButtonLogic()
         {
-            // adds sweetner
+            RemoveAllButtons();
+            FlavorButton.Content = "Flavor";
+            SelectDrink.Children.Add(FlavorButton);
+            FlavorButton.Click += new RoutedEventHandler(FlavorScreen);
+            if (DataContext is Order order)
+            {
+                drink = new Sodasaurus();
+                if (!isCombo)
+                {
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = drink;
+                }
+            }
         }
         /// <summary>
         /// Removes all button that handle special conditions on each item
@@ -168,9 +227,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnChangeSize(object sender, RoutedEventArgs args)
         {
-            if (sender is FrameworkElement element)
+            if(!isCombo)
             {
-                drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                if (sender is FrameworkElement element)
+                {
+                    drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                }
+            }
+            else
+            {
+                if (sender is FrameworkElement element)
+                {
+                    combo.Drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                }
             }
         }
         
@@ -193,9 +262,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnDecafClick(object sender, RoutedEventArgs args)
         {
-            if (drink is JurassicJava java)
+            if(isCombo)
             {
-                java.DecafJava();
+                if (combo.Drink is JurassicJava java)
+                {
+                    java.DecafJava();
+                }
+            }
+            else
+            {
+                if (drink is JurassicJava java)
+                {
+                    java.DecafJava();
+                }
             }
         }
         /// <summary>
@@ -205,10 +284,21 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnRoomForCreamClick(object sender, RoutedEventArgs args)
         {
-            if (drink is JurassicJava java)
+            if(isCombo)
             {
-                java.LeaveRoomForCream();
+                if(drink is JurassicJava java)
+                {
+                    java.LeaveRoomForCream();
+                }
             }
+            else
+            {
+                if (drink is JurassicJava java)
+                {
+                    java.LeaveRoomForCream();
+                }
+            }
+            
         }
         /// <summary>
         /// Adds ice to water

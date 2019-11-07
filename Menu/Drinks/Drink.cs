@@ -40,6 +40,7 @@ namespace DinoDiner.Menu
         /// List of special instructions on drink
         /// </summary>
         public abstract string[] Special { get; }
+        
         /// <summary>
         /// Variable to handle property change
         /// </summary>
@@ -55,7 +56,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Sets ice to false
         /// </summary>
-        public void HoldIce()
+        public virtual void HoldIce()
         {
             this.Ice = false;
             INotifyIfPropertyChanged("Ingredients");

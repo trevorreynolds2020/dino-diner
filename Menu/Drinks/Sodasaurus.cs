@@ -112,5 +112,13 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
+        /// <summary>
+        /// Holds ice
+        /// </summary>
+        public override void HoldIce()
+        {
+            this.Ice = false;
+            INotifyIfPropertyChanged("Special");
+        }
     }
 }

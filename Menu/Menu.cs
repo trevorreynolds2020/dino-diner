@@ -10,34 +10,40 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets all available items
         /// </summary>
-       public List<IMenuItem> AvailableMenuItems
+
+        private List<IMenuItem> availableMenuItems;
+        private List<IMenuItem> availableEntrees;
+        private List<IMenuItem> availableSides;
+        private List<IMenuItem> availableCombos;
+        private List<IMenuItem> availableDrinks;
+        public List<IMenuItem> AvailableMenuItems
        {
             get
-            {     
-                AvailableMenuItems.Add(new JurassicJava());
-                AvailableMenuItems.Add(new Sodasaurus());
-                AvailableMenuItems.Add(new Tyrannotea());
-                AvailableMenuItems.Add(new Water());
-                AvailableMenuItems.Add(new Brontowurst());
-                AvailableMenuItems.Add(new DinoNuggets());
-                AvailableMenuItems.Add(new PrehistoricPBJ());
-                AvailableMenuItems.Add(new PterodactylWings());
-                AvailableMenuItems.Add(new SteakosaurusBurger());
-                AvailableMenuItems.Add(new TRexKingBurger());
-                AvailableMenuItems.Add(new VelociWrap());
-                AvailableMenuItems.Add(new PterodactylWings());
-                AvailableMenuItems.Add(new Fryceritops());
-                AvailableMenuItems.Add(new MeteorMacAndCheese());
-                AvailableMenuItems.Add(new MezzorellaSticks());
-                AvailableMenuItems.Add(new Triceritots());
-                AvailableMenuItems.Add(new CretaceousCombo(new Brontowurst()));
-                AvailableMenuItems.Add(new CretaceousCombo(new DinoNuggets()));
-                AvailableMenuItems.Add(new CretaceousCombo(new PrehistoricPBJ()));
-                AvailableMenuItems.Add(new CretaceousCombo(new PterodactylWings()));
-                AvailableMenuItems.Add(new CretaceousCombo(new SteakosaurusBurger()));
-                AvailableMenuItems.Add(new CretaceousCombo(new TRexKingBurger()));
-                AvailableMenuItems.Add(new CretaceousCombo(new VelociWrap()));
-                return AvailableMenuItems;
+            {
+                availableMenuItems.Add(new JurassicJava());
+                availableMenuItems.Add(new Sodasaurus());
+                availableMenuItems.Add(new Tyrannotea());
+                availableMenuItems.Add(new Water());
+                availableMenuItems.Add(new Brontowurst());
+                availableMenuItems.Add(new DinoNuggets());
+                availableMenuItems.Add(new PrehistoricPBJ());
+                availableMenuItems.Add(new PterodactylWings());
+                availableMenuItems.Add(new SteakosaurusBurger());
+                availableMenuItems.Add(new TRexKingBurger());
+                availableMenuItems.Add(new VelociWrap());
+                availableMenuItems.Add(new PterodactylWings());
+                availableMenuItems.Add(new Fryceritops());
+                availableMenuItems.Add(new MeteorMacAndCheese());
+                availableMenuItems.Add(new MezzorellaSticks());
+                availableMenuItems.Add(new Triceritots());
+                availableMenuItems.Add(new CretaceousCombo(new Brontowurst()));
+                availableMenuItems.Add(new CretaceousCombo(new DinoNuggets()));
+                availableMenuItems.Add(new CretaceousCombo(new PrehistoricPBJ()));
+                availableMenuItems.Add(new CretaceousCombo(new PterodactylWings()));
+                availableMenuItems.Add(new CretaceousCombo(new SteakosaurusBurger()));
+                availableMenuItems.Add(new CretaceousCombo(new TRexKingBurger()));
+                availableMenuItems.Add(new CretaceousCombo(new VelociWrap()));
+                return availableMenuItems;
             }
        }
         /// <summary>
@@ -47,14 +53,14 @@ namespace DinoDiner.Menu
         {
             get
             {
-                AvailableEntrees.Add(new Brontowurst());
-                AvailableEntrees.Add(new DinoNuggets());
-                AvailableEntrees.Add(new PrehistoricPBJ());
-                AvailableEntrees.Add(new PterodactylWings());
-                AvailableEntrees.Add(new SteakosaurusBurger());
-                AvailableEntrees.Add(new TRexKingBurger());
-                AvailableEntrees.Add(new VelociWrap());
-                return AvailableEntrees;
+                availableEntrees.Add(new Brontowurst());
+                availableEntrees.Add(new DinoNuggets());
+                availableEntrees.Add(new PrehistoricPBJ());
+                availableEntrees.Add(new PterodactylWings());
+                availableEntrees.Add(new SteakosaurusBurger());
+                availableEntrees.Add(new TRexKingBurger());
+                availableEntrees.Add(new VelociWrap());
+                return availableEntrees;
             }
         }
         /// <summary>
@@ -64,11 +70,11 @@ namespace DinoDiner.Menu
         {
             get
             {
-                AvailableSides.Add(new Fryceritops());
-                AvailableSides.Add(new MeteorMacAndCheese());
-                AvailableSides.Add(new MezzorellaSticks());
-                AvailableSides.Add(new Triceritots());
-                return AvailableSides;
+                availableSides.Add(new Fryceritops());
+                availableSides.Add(new MeteorMacAndCheese());
+                availableSides.Add(new MezzorellaSticks());
+                availableSides.Add(new Triceritots());
+                return availableSides;
             }
         }
         /// <summary>
@@ -78,11 +84,11 @@ namespace DinoDiner.Menu
         {
             get
             {
-                AvailableDrinks.Add(new JurassicJava());
-                AvailableDrinks.Add(new Sodasaurus());
-                AvailableDrinks.Add(new Tyrannotea());
-                AvailableDrinks.Add(new Water());
-                return AvailableDrinks;
+                availableDrinks.Add(new JurassicJava());
+                availableDrinks.Add(new Sodasaurus());
+                availableDrinks.Add(new Tyrannotea());
+                availableDrinks.Add(new Water());
+                return availableDrinks;
             }
         }
         /// <summary>
@@ -92,14 +98,15 @@ namespace DinoDiner.Menu
         {
             get
             {
-                AvailableCombos.Add(new CretaceousCombo(new Brontowurst()));
-                AvailableCombos.Add(new CretaceousCombo(new DinoNuggets()));
-                AvailableCombos.Add(new CretaceousCombo(new PrehistoricPBJ()));
-                AvailableCombos.Add(new CretaceousCombo(new PterodactylWings()));
-                AvailableCombos.Add(new CretaceousCombo(new SteakosaurusBurger()));
-                AvailableCombos.Add(new CretaceousCombo(new TRexKingBurger()));
-                AvailableCombos.Add(new CretaceousCombo(new VelociWrap()));
-                return AvailableCombos;
+                availableCombos.Add(new CretaceousCombo(new Brontowurst()));
+                availableCombos.Add(new CretaceousCombo(new DinoNuggets()));
+                availableCombos.Add(new CretaceousCombo(new PrehistoricPBJ()));
+                availableCombos.Add(new CretaceousCombo(new PterodactylWings()));
+                availableCombos.Add(new CretaceousCombo(new SteakosaurusBurger()));
+                availableCombos.Add(new CretaceousCombo(new TRexKingBurger()));
+                availableCombos.Add(new CretaceousCombo(new VelociWrap()));
+                return availableCombos
+;
             }
         }
         /// <summary>

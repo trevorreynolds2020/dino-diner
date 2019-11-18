@@ -9,11 +9,10 @@ namespace Website.Pages
 {
     public class MenuModel : PageModel
     {
-        protected Menu menu;
-        public Menu Menu { get { return menu; } }
+        public Menu Menu;
         public void OnGet()
         {
-            menu = new Menu();
+            Menu = new Menu();
         }
     }
 }

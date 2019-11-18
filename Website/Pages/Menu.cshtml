@@ -1,0 +1,22 @@
+﻿@page
+@model Website.Pages.MenuModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h2>Menu</h2>
+<div class="menu-item">Brontowurst Combo</div>
+<div class="menu-item">Dino Nuggets Combo</div>
+<div class="menu-item">Prehistoric PB&J Combo</div>
+<div class="menu-item">Pterodactyl Combo</div>
+<div class="menu-item">Steakosaurus Burger Combo</div>
+<div class="menu-item">TRex Burger Combo</div>
+<div class="menu-item">Veloci Wrap Combo</div>
+
+<h2>Combos</h2>
+
+<p>@(Model.Menu.AvailableSides[1].ToString())</p>
+
+<h2>Entrees</h2>
+<h2>Sides</h2>
+<h2>Drinks</h2>

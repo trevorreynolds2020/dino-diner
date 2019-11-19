@@ -14,7 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Images\" />
     <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\DinoDiner-32.png" />
   </ItemGroup>
 
   <ItemGroup>

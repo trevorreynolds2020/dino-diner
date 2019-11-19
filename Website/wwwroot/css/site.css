@@ -16,10 +16,17 @@ body {
     padding-left: 1em;
 }
 
+.banner{
+    width: 40%;
+    padding-left: 200px;
+}
 .Menu{
     font-family:'Comic Sans MS';
     align-content: center;
+}
 
+.menu-selection{
+    padding-left: 200px;
 }
 .item{
     border: dotted; 

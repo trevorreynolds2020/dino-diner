@@ -15,3 +15,40 @@ body {
 .menu-item{
     padding-left: 1em;
 }
+
+.Menu{
+    font-family:'Comic Sans MS';
+    align-content: center;
+
+}
+.item{
+    border: dotted; 
+    align-items: center;
+    padding: 30px;
+    padding-left: 300px;
+}
+.ingredients{
+    align-content:flex-end;
+    padding-left: 30px;
+    border-left: solid;
+}
+.details{
+    border-top: thin;
+    border-bottom: thin;
+    border: thick;
+}
+.Combo{
+    background-color: lightblue;
+    align-content:center;
+}
+.Entrees{
+    background-color: lightsteelblue;
+}
+
+.Sides{
+    background-color: lightyellow;
+}
+
+.Drinks{
+    background-color: lightcoral;
+}

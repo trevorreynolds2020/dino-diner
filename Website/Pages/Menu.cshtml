@@ -3,24 +3,86 @@
 @{
     ViewData["Title"] = "Menu";
 }
-<!DOCTYPE html>
-<html>
-<body>
-<h2>Menu</h2>
-<div class="menu-item">Brontowurst Combo</div>
-<div class="menu-item">Dino Nuggets Combo</div>
-<div class="menu-item">Prehistoric PB&J Combo</div>
-<div class="menu-item">Pterodactyl Combo</div>
-<div class="menu-item">Steakosaurus Burger Combo</div>
-<div class="menu-item">TRex Burger Combo</div>
-<div class="menu-item">Veloci Wrap Combo</div>
+@using DinoDiner.Menu
+<div class="Menu">
+    <h1>Menu</h1>
+    <div class="Combo">
+        <h2>Combos</h2>
+        @foreach (IMenuItem item in Model.Menu.AvailableCombos)
+        {
+            <div class="item">
+                <p>@item.ToString()</p>
+                <div class="details">
+                    $@item.Price /  @item.Calories Calories
+                </div>
+                <h4>Ingredients</h4>
+                @foreach (string ingredient in item.Ingredients)
+                {
+                    <div class="ingredients">
+                        <p>   @ingredient</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
 
-<h2>Combos</h2>
+    <div class="Entrees">
+        <h2>Entrees</h2>
+        @foreach (IMenuItem item in Model.Menu.AvailableEntrees)
+        {
+            <div class="item">
+                <p>@item.ToString()</p>
+                <div class="details">
+                    $@item.Price /  @item.Calories Calories
+                </div>
+                <h4>Ingredients</h4>
+                @foreach(string ingredient in item.Ingredients)
+                {
+                    <div class="ingredients">
+                        <p>   @ingredient</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
 
-<p>(@Model.Menu.AvailableSides[1].ToString())</p>
+    <div class="Sides">
+        <h2>Sides</h2>
+        @foreach (IMenuItem item in Model.Menu.AvailableSides)
+        {
+            <div class="item">
+                <p>@item.ToString()</p>
+                <div class="details">
+                    $@item.Price /  @item.Calories Calories
+                </div>
+                <h4>Ingredients</h4>
+                @foreach (string ingredient in item.Ingredients)
+                {
+                    <div class="ingredients">
+                        <p>   @ingredient</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
 
-<h2>Entrees</h2>
-<h2>Sides</h2>
-<h2>Drinks</h2>
-</body>
-</html>
+    <div class="Drinks">
+        <h2>Drinks</h2>
+        @foreach (IMenuItem item in Model.Menu.AvailableDrinks)
+        {
+            <div class="item">
+                <p>@item.ToString()</p>
+                <div class="details">
+                    $@item.Price /  @item.Calories Calories
+                </div>
+                <h4>Ingredients</h4>
+                @foreach (string ingredient in item.Ingredients)
+                {
+                    <div class="ingredients">
+                        <p>   @ingredient</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div> 

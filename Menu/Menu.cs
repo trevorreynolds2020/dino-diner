@@ -97,29 +97,38 @@ namespace DinoDiner.Menu
             }
             return "";
         }
-
+        /// <summary>
+        /// filters the ingredients
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <param name="ingredients"></param>
+        /// <returns></returns>
         public List<IMenuItem> FilterByIngredients(List<IMenuItem> menu, List<string> ingredients)
         {
             List<IMenuItem> searchResults = new List<IMenuItem>();
             for (int i = 0; i < menu.Count; i++)
             {
+                bool keepItem = true;
                 for (int j = 0; j < ingredients.Count; j++)
                 {
                     if (menu[i].Ingredients.Contains(ingredients[j]))
                     {
-                        break;
-                    }
-                    else
-                    {
-                        searchResults.Add(menu[i]);
+                        keepItem = false;
+                        menu.Remove(menu[i]);
                     }
                 }
+                if (keepItem)searchResults.Add(menu[i]);
             }
             return searchResults;
         }
     
 
-
+        /// <summary>
+        /// Filters items that cost less than max price range
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <param name="maxPrice"></param>
+        /// <returns></returns>
         public List<IMenuItem> FilterMaxPrice(List<IMenuItem> menu, double? maxPrice)
         {
             List<IMenuItem> searchResults = new List<IMenuItem>();
@@ -132,6 +141,12 @@ namespace DinoDiner.Menu
             }
             return searchResults;
         }
+        /// <summary>
+        /// Keep items that are worth more than this price
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <param name="minPrice"></param>
+        /// <returns></returns>
         public List<IMenuItem> FilterMinPrice(List<IMenuItem> menu, double? minPrice)
         {
             List<IMenuItem> searchResults = new List<IMenuItem>();
@@ -159,7 +174,7 @@ namespace DinoDiner.Menu
             }
         }
         /// <summary>
-        /// Returns 
+        /// Returns search result
         /// </summary>
         /// <param name="menu"></param>
         /// <param name="s"></param>
@@ -176,6 +191,12 @@ namespace DinoDiner.Menu
             }
             return searchResult;
         }
+        /// <summary>
+        /// Filters items based on large category
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <param name="filters"></param>
+        /// <returns></returns>
         public List<IMenuItem> Filter(List<IMenuItem> menu, List<string> filters)
         {
             List<IMenuItem> searchResult = new List<IMenuItem>();

@@ -9,33 +9,79 @@ namespace Website.Pages
 {
     public class MenuModel : PageModel
     {
+        /// <summary>
+        /// New instance of menu class
+        /// </summary>
         public Menu Menu { get; } = new Menu();
-
+        /// <summary>
+        /// List of menu items
+        /// </summary>
         public List<IMenuItem> MenuItems;
+        /// <summary>
+        /// List of combos
+        /// </summary>
         public List<IMenuItem> Combos { get; set; }
+        /// <summary>
+        /// List of entrees
+        /// </summary>
         public List<IMenuItem> Entrees { get; set; }
+        /// <summary>
+        /// List of sides
+        /// </summary>
         public List<IMenuItem> Sides { get; set; }
+        /// <summary>
+        /// List of drinks
+        /// </summary>
         public List<IMenuItem> Drinks { get; set; }
-
+        /// <summary>
+        /// Represents what your searching for
+        /// </summary>
         [BindProperty]
         public String Search { get; set; }
-
+        /// <summary>
+        /// Minimum price on the item
+        /// </summary>
         [BindProperty]
         public double? minPrice { get; set; }
-
+        /// <summary>
+        /// Maximum price of the item
+        /// </summary>
         [BindProperty]
         public double? maxPrice { get; set; }
-
+        /// <summary>
+        /// List of filters applied to search
+        /// </summary>
         [BindProperty]
         public List<string> Filter { get; set; } = new List<string>();
-
+        /// <summary>
+        /// List of ingredients
+        /// </summary>
         [BindProperty]
         public List<string> Ingredients { get; set; } = new List<string>();
-
+        /// <summary>
+        /// List of ingredients
+        /// </summary>
         public HashSet<string> IngredientHashSet { get; set; } = new HashSet<string>();
-
-
+        /// <summary>
+        /// When this is initally run
+        /// </summary>
         public void OnGet()
+        {
+            Drinks = Menu.AvailableDrinks;
+            Entrees = Menu.AvailableEntrees;
+            Sides = Menu.AvailableSides;
+            MenuItems = Menu.AvailableMenuItems;
+            Combos = Menu.AvailableCombos;
+            Menu.AllIngredients(Drinks);
+            Menu.AllIngredients(Entrees);
+            Menu.AllIngredients(Sides);
+            Menu.AllIngredients(Combos);
+            IngredientHashSet = Menu.PossibleIngredients;
+        }
+        /// <summary>
+        /// When this is updated
+        /// </summary>
+        public void OnPost()
         {
             Drinks = Menu.AvailableDrinks;
             Entrees = Menu.AvailableEntrees;
@@ -84,7 +130,5 @@ namespace Website.Pages
                 Drinks = Menu.FilterByIngredients(Drinks, Ingredients);
             }
         }
-
-       
     }
 }

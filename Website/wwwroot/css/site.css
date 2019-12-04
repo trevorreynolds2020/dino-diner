@@ -59,3 +59,12 @@ body {
 .Drinks{
     background-color: lightcoral;
 }
+.content{
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-category {
+    display: flex;
+    flex-direction: column;
+}

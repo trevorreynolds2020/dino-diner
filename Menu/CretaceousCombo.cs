@@ -8,6 +8,21 @@ namespace DinoDiner.Menu
     /// </summary>
     public class CretaceousCombo : Entree , IMenuItem, INotifyPropertyChanged, IOrderItem
     {
+        // Backing Variables
+        private Size size;
+ //       public Size Size
+ //       {
+ //           get
+//            {
+//                return size;
+ //           }
+//            set
+ //           {
+//                size = value;
+  //              side.Size = value;
+   //             drink.Size = value;
+    //        }
+     //   }
         /// <summary>
         /// An event handler for PropertChanged events
         /// </summary>
@@ -66,8 +81,7 @@ namespace DinoDiner.Menu
                 return this.ToString();
             }
         }
-        // Backing Variables
-        private Size size;
+        
 
 
         /// <summary>

@@ -9,13 +9,37 @@
             <h1>Menu</h1>
             <div class="Combo">
                 <h2>Combos</h2>
-                @foreach (IMenuItem item in Model.Combos)
+                @foreach (IMenuItem combo in Model.Combos)
                 {
-                    <div class="item">
-                        <p>@item.ToString()</p>
-                        <div class="details">
-                            $@item.Price /  @item.Calories Calories
-                        </div>
+                CretaceousCombo item = combo as CretaceousCombo;
+                <div class="item">
+                    <p>@item.ToString()</p>
+
+                        <table>
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
+                            <tr>
+                                <td>Small</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                            @{ item.Size = Size.Medium; }
+                            <tr>
+                                <td>Medium</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                            @{ item.Size = Size.Large; }
+                            <tr>
+                                <td>Large</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                        </table>
+                
                         <h4>Ingredients</h4>
                         @foreach (string ingredient in item.Ingredients)
                         {
@@ -23,7 +47,7 @@
                                 <p>   @ingredient</p>
                             </div>
                         }
-                    </div>
+                </div>
                 }
             </div>
 
@@ -49,13 +73,35 @@
 
             <div class="Sides">
                 <h2>Sides</h2>
-                @foreach (IMenuItem item in Model.Sides)
+                @foreach (IMenuItem side in Model.Sides)
                 {
+                    Side item = side as Side;
                     <div class="item">
                         <p>@item.ToString()</p>
-                        <div class="details">
-                            $@item.Price /  @item.Calories Calories
-                        </div>
+                        <table>
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
+                            <tr>
+                                <td>Small</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                            @{ item.Size = Size.Medium; }
+                            <tr>
+                                <td>Medium</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                            @{ item.Size = Size.Large; }
+                            <tr>
+                                <td>Large</td>
+                                <td>@item.Price</td>
+                                <td>@item.Calories</td>
+                            </tr>
+                        </table>
                         <h4>Ingredients</h4>
                         @foreach (string ingredient in item.Ingredients)
                         {
@@ -69,13 +115,36 @@
 
             <div class="Drinks">
                 <h2>Drinks</h2>
-                @foreach (IMenuItem item in Model.Drinks)
+                @foreach (IMenuItem drink in Model.Drinks)
                 {
+                    Drink item = drink as Drink;
                     <div class="item">
                         <p>@item.ToString()</p>
-                        <div class="details">
-                            $@item.Price /  @item.Calories Calories
-                        </div>
+                            <table>
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                    <th>Calories</th>
+                                </tr>
+                                <tr>
+                                    <td>Small</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.Calories</td>
+                                </tr>
+                                @{ item.Size = Size.Medium; }
+                                <tr>
+                                    <td>Medium</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.Calories</td>
+                                </tr>
+                                @{ item.Size = Size.Large; }
+                                <tr>
+                                    <td>Large</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.Calories</td>
+                                </tr>
+                            </table>
+
                         <h4>Ingredients</h4>
                         @foreach (string ingredient in item.Ingredients)
                         {

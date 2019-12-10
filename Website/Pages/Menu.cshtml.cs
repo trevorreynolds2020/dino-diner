@@ -16,23 +16,23 @@ namespace Website.Pages
         /// <summary>
         /// List of menu items
         /// </summary>
-        public List<IMenuItem> MenuItems;
+        public IEnumerable<IMenuItem> MenuItems;
         /// <summary>
         /// List of combos
         /// </summary>
-        public List<IMenuItem> Combos { get; set; }
+        public IEnumerable<IMenuItem> Combos { get; set; }
         /// <summary>
         /// List of entrees
         /// </summary>
-        public List<IMenuItem> Entrees { get; set; }
+        public IEnumerable<IMenuItem> Entrees { get; set; }
         /// <summary>
         /// List of sides
         /// </summary>
-        public List<IMenuItem> Sides { get; set; }
+        public IEnumerable<IMenuItem> Sides { get; set; }
         /// <summary>
         /// List of drinks
         /// </summary>
-        public List<IMenuItem> Drinks { get; set; }
+        public IEnumerable<IMenuItem> Drinks { get; set; }
         /// <summary>
         /// Represents what your searching for
         /// </summary>
@@ -72,10 +72,10 @@ namespace Website.Pages
             Sides = Menu.AvailableSides;
             MenuItems = Menu.AvailableMenuItems;
             Combos = Menu.AvailableCombos;
-            Menu.AllIngredients(Drinks);
-            Menu.AllIngredients(Entrees);
-            Menu.AllIngredients(Sides);
-            Menu.AllIngredients(Combos);
+            Menu.AllIngredients(Menu.AvailableCombos);
+            Menu.AllIngredients(Menu.AvailableEntrees);
+            Menu.AllIngredients(Menu.AvailableDrinks);
+            Menu.AllIngredients(Menu.AvailableSides);
             IngredientHashSet = Menu.PossibleIngredients;
         }
         /// <summary>
@@ -88,46 +88,100 @@ namespace Website.Pages
             Sides = Menu.AvailableSides;
             MenuItems = Menu.AvailableMenuItems;
             Combos = Menu.AvailableCombos;
-            Menu.AllIngredients(Drinks);
-            Menu.AllIngredients(Entrees);
-            Menu.AllIngredients(Sides);
-            Menu.AllIngredients(Combos);
+            Menu.AllIngredients(Menu.AvailableCombos);
+            Menu.AllIngredients(Menu.AvailableEntrees);
+            Menu.AllIngredients(Menu.AvailableDrinks);
+            Menu.AllIngredients(Menu.AvailableSides);
             IngredientHashSet = Menu.PossibleIngredients;
 
             if (minPrice != null)
             {
-                Combos = Menu.FilterMinPrice(Combos, minPrice);
-                Entrees = Menu.FilterMinPrice(Entrees, minPrice);
-                Sides = Menu.FilterMinPrice(Sides, minPrice);
-                Drinks = Menu.FilterMinPrice(Drinks, minPrice);
+                Sides = Sides.Where(side => side.Price >= minPrice);
+                Drinks = Drinks.Where(drink => drink.Price >= minPrice);
+                Combos = Combos.Where(combo => combo.Price >= minPrice);
+                Entrees = Entrees.Where(entree => entree.Price >= minPrice);
             }
             if (maxPrice != null)
             {
-                Combos = Menu.FilterMaxPrice(Combos, maxPrice);
-                Entrees = Menu.FilterMaxPrice(Entrees, maxPrice);
-                Sides = Menu.FilterMaxPrice(Sides, maxPrice);
-                Drinks = Menu.FilterMaxPrice(Drinks, maxPrice);
+                Combos = Combos.Where(combo => combo.Price <= maxPrice);
+                Drinks = Drinks.Where(drink => drink.Price <= maxPrice);
+                Entrees = Entrees.Where(entree => entree.Price <= maxPrice);
+                Sides = Sides.Where(side => side.Price <= maxPrice);
+
             }
             if (Search != null)
             {
-                Combos = Menu.Search(Combos, Search);
-                Entrees = Menu.Search(Entrees, Search);
-                Sides = Menu.Search(Sides, Search);
-                Drinks = Menu.Search(Drinks, Search);
+                Combos = Combos.Where(combo => combo.ToString().Contains(Search));
+                Sides = Sides.Where(side => side.ToString().Contains(Search));
+                Entrees = Entrees.Where(entree => entree.ToString().Contains(Search));
+                Drinks = Drinks.Where(drink => drink.ToString().Contains(Search));
+
             }
             if (Filter.Count != 0)
             {
-                Combos = Menu.Filter(Combos, Filter);
-                Entrees = Menu.Filter(Entrees, Filter);
-                Sides = Menu.Filter(Sides, Filter);
-                Drinks = Menu.Filter(Drinks, Filter);
+                Combos = Combos.Where(combo => combo is CretaceousCombo && Filter.Contains("Combo"));
+                Entrees = Entrees.Where(entree => entree is Entree && Filter.Contains("Entree"));
+                Sides = Sides.Where(side => side is Side && Filter.Contains("Side"));
+                Drinks = Drinks.Where(drink => drink is Drink && Filter.Contains("Drink"));
             }
             if (Ingredients.Count != 0)
             {
-                Combos = Menu.FilterByIngredients(Combos, Ingredients);
-                Entrees = Menu.FilterByIngredients(Entrees, Ingredients);
-                Sides = Menu.FilterByIngredients(Sides, Ingredients);
-                Drinks = Menu.FilterByIngredients(Drinks, Ingredients);
+                Entrees = Entrees.Where(entree =>
+                {
+                    List<IMenuItem> searchResults = new List<IMenuItem>();
+                    bool keepItem = true;
+                    for (int i = 0; i < Ingredients.Count; i++)
+                    {
+                        if (entree.Ingredients.Contains(Ingredients[i]))
+                        {
+                            keepItem = false;
+                        }
+                    }
+                    return keepItem;
+                });
+
+                Drinks = Drinks.Where(drink =>
+                {
+                    List<IMenuItem> searchResults = new List<IMenuItem>();
+                    bool keepItem = true;
+                    for (int i = 0; i < Ingredients.Count; i++)
+                    {
+                        if (drink.Ingredients.Contains(Ingredients[i]))
+                        {
+                            keepItem = false;
+                            break;
+                        }
+                    }
+                    return keepItem;
+                });
+
+                Sides = Sides.Where(side =>
+                {
+                    List<IMenuItem> searchResults = new List<IMenuItem>();
+                    bool keepItem = true;
+                    for (int i = 0; i < Ingredients.Count; i++)
+                    {
+                        if (side.Ingredients.Contains(Ingredients[i]))
+                        {
+                            keepItem = false;
+                        }
+                    }
+                    return keepItem;
+                });
+
+                Combos = Combos.Where(combo =>
+                {
+                    List<IMenuItem> searchResults = new List<IMenuItem>();
+                    bool keepItem = true;
+                    for (int i = 0; i < Ingredients.Count; i++)
+                    {
+                        if (combo.Ingredients.Contains(Ingredients[i]))
+                        {
+                            keepItem = false;
+                        }
+                    }
+                    return keepItem;
+                });
             }
         }
     }

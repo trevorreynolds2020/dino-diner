@@ -128,7 +128,6 @@ namespace Website.Pages
             {
                 Entrees = Entrees.Where(entree =>
                 {
-                    List<IMenuItem> searchResults = new List<IMenuItem>();
                     bool keepItem = true;
                     for (int i = 0; i < Ingredients.Count; i++)
                     {
@@ -142,14 +141,12 @@ namespace Website.Pages
 
                 Drinks = Drinks.Where(drink =>
                 {
-                    List<IMenuItem> searchResults = new List<IMenuItem>();
                     bool keepItem = true;
                     for (int i = 0; i < Ingredients.Count; i++)
                     {
                         if (drink.Ingredients.Contains(Ingredients[i]))
                         {
                             keepItem = false;
-                            break;
                         }
                     }
                     return keepItem;
@@ -157,7 +154,6 @@ namespace Website.Pages
 
                 Sides = Sides.Where(side =>
                 {
-                    List<IMenuItem> searchResults = new List<IMenuItem>();
                     bool keepItem = true;
                     for (int i = 0; i < Ingredients.Count; i++)
                     {
@@ -171,7 +167,6 @@ namespace Website.Pages
 
                 Combos = Combos.Where(combo =>
                 {
-                    List<IMenuItem> searchResults = new List<IMenuItem>();
                     bool keepItem = true;
                     for (int i = 0; i < Ingredients.Count; i++)
                     {

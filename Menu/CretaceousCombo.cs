@@ -6,7 +6,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo : Entree , IMenuItem, INotifyPropertyChanged, IOrderItem
+    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged, IOrderItem
     {
         // Backing Variables
         private Size size;
@@ -58,7 +58,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Returns a list of special instructions
         /// </summary>
-        public override string[] Special
+        public string[] Special
         {
             get
             {
@@ -74,7 +74,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The description is the string representation of the entree
         /// </summary>
-        public override string Description
+        public string Description
         {
             get
             {

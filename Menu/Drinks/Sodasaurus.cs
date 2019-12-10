@@ -22,10 +22,6 @@ namespace DinoDiner.Menu
         /// small, medium, or large
         /// </summary>
         public Size size;
-        /// <summary>
-        /// price of the coffee
-        /// </summary>
-        public double Price { get; set; } = 1.5;
 
         /// <summary>
         /// An event handler for PropertChanged events
@@ -74,7 +70,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public Sodasaurus()
         {
-            Price = 1.5;
+            Price = 1.50;
             Calories = 112;
             Ice = true;
             ingredients.Add("Water");
